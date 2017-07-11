@@ -1,4 +1,4 @@
-package it.pulzer.android.earthdawncharactercreator;
+package it.pulzer.android.earthdawncharactercreator.races;
 
 /**
  * Created by thopu on 04.07.17.
@@ -16,5 +16,13 @@ public class DwarfenRace extends BaseRace {
 
         movementRate.put("Base", 10);
         karmaModification = 4;
+
+        racialAbilities.add("Heat Sight");
+        racialAbilities.add("Strong Back");
+    }
+
+    @Override
+    protected int getCarryCapacity() {
+        return carryingLimit(strength.currentValue + 2);
     }
 }
