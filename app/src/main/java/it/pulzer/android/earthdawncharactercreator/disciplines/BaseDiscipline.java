@@ -1,25 +1,23 @@
-package it.pulzer.android.earthdawncharactercreator.disciples;
+package it.pulzer.android.earthdawncharactercreator.disciplines;
 
 import android.util.SparseArray;
 
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
 import it.pulzer.android.earthdawncharactercreator.KarmaModification;
 import it.pulzer.android.earthdawncharactercreator.Talent;
-import it.pulzer.android.earthdawncharactercreator.Attribute;
 
 /**
  * Created by thopu on 11.07.17.
  */
 
-abstract class BaseDiscipline {
+public abstract class BaseDiscipline {
     Set<String> importantAttributes;
     SparseArray<KarmaModification> karmaModifications;
     int[] increasedDurability;
-    Map<Integer, Set<Talent>> talentList;
+    Map<Integer, Set<Talent>> availableTalents;
 
     BaseDiscipline() {
         importantAttributes = new HashSet<>();
@@ -28,35 +26,35 @@ abstract class BaseDiscipline {
         increasedDurability[1] = 0;
     }
 
-    protected void setTalents(int circle, Set<Talent> talents) {
-        talentList.put(circle, talents);
+    void setTalents(int circle, Set<Talent> talents) {
+        availableTalents.put(circle, talents);
     }
 
-    protected int getUnconsciousModification(int circle) {
+    public int getUnconsciousModification(int circle) {
         return circle*increasedDurability[0];
     }
 
-    protected int getDeathModification(int circle) {
+    public int getDeathModification(int circle) {
         return circle*increasedDurability[0];
     }
 
-    protected int getPhysicalDefenseModification(int circle) {
+    public int getPhysicalDefenseModification(int circle) {
         return 0;
     }
 
-    protected int getMysticalDefenseModification(int circle) {
+    public int getMysticalDefenseModification(int circle) {
         return 0;
     }
 
-    protected int getSocialDefenseModification(int circle) {
+    public int getSocialDefenseModification(int circle) {
         return 0;
     }
 
-    protected int getInitiativeModification(int circle) {
+    public int getInitiativeModification(int circle) {
         return 0;
     }
 
-    protected KarmaModification getKarmaModification(int circle) {
+    public KarmaModification getKarmaModification(int circle) {
         return null;
     }
 }

@@ -1,4 +1,4 @@
-package it.pulzer.android.earthdawncharactercreator.disciples;
+package it.pulzer.android.earthdawncharactercreator.disciplines;
 
 import it.pulzer.android.earthdawncharactercreator.Attribute;
 import it.pulzer.android.earthdawncharactercreator.KarmaModification;
@@ -24,7 +24,7 @@ public class ThiefDiscipline extends BaseDiscipline {
     }
 
     @Override
-    protected int getPhysicalDefenseModification(int circle) {
+    public int getPhysicalDefenseModification(int circle) {
         int modification = 0;
         if(circle >= 2) {
             modification += 1;
@@ -39,17 +39,17 @@ public class ThiefDiscipline extends BaseDiscipline {
     }
 
     @Override
-    protected int getSocialDefenseModification(int circle) {
+    public int getSocialDefenseModification(int circle) {
         return circle>=4 ? 1 : 0;
     }
 
     @Override
-    protected int getInitiativeModification(int circle) {
+    public int getInitiativeModification(int circle) {
         return circle>=7 ? 1 : 0;
     }
 
     @Override
-    protected KarmaModification getKarmaModification(int circle) {
+    public KarmaModification getKarmaModification(int circle) {
         return karmaModifications.get(circle, null);
     }
 }

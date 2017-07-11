@@ -24,7 +24,7 @@ public class WindlingRace extends BaseRace {
     }
 
     @Override
-    protected int getPhysicalDefenseRate() {
+    public int getPhysicalDefenseRate() {
         return defenseRate(dexterity.currentValue + 2);
     }
 }

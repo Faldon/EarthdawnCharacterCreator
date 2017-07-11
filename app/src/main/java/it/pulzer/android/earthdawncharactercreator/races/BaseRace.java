@@ -11,7 +11,7 @@ import it.pulzer.android.earthdawncharactercreator.Attribute;
  * Created by thopu on 28.06.17.
  */
 
-abstract class BaseRace {
+public abstract class BaseRace {
     Attribute dexterity = new Attribute(Attribute.DEX);
     Attribute strength = new Attribute(Attribute.STR);
     Attribute toughness = new Attribute(Attribute.TOUGH);
@@ -55,27 +55,46 @@ abstract class BaseRace {
     int mysticalArmor(int value) { return value / 5; }
 
 
-    protected int getPhysicalDefenseRate() { return defenseRate(dexterity.currentValue); }
+    public int getPhysicalDefenseRate() { return defenseRate(dexterity.currentValue); }
 
-    protected int getMysticalDefenseRate() { return defenseRate(perception.currentValue); }
+    public int getMysticalDefenseRate() { return defenseRate(perception.currentValue); }
 
-    protected int getSocialDefenseRate() { return defenseRate(charisma.currentValue); }
+    public int getSocialDefenseRate() { return defenseRate(charisma.currentValue); }
 
-    protected int getCarryCapacity() { return carryingLimit(strength.currentValue); }
+    public int getCarryCapacity() { return carryingLimit(strength.currentValue); }
 
-    protected int getLiftingLimit() { return 2* getCarryCapacity(); }
+    public int getLiftingLimit() { return 2* getCarryCapacity(); }
 
-    protected int getUnconsciousThreshold() { return unconsciousThreshold(toughness.currentValue); }
+    public int getUnconsciousThreshold() { return unconsciousThreshold(toughness.currentValue); }
 
-    protected int getDeathThreshold() { return deathThreshold(toughness.currentValue); }
+    public int getDeathThreshold() { return deathThreshold(toughness.currentValue); }
 
-    protected int getWoundThreshold() { return woundThreshold(toughness.currentValue); }
+    public int getWoundThreshold() { return woundThreshold(toughness.currentValue); }
 
-    protected int getRecoveryCount() { return revoceryCount(toughness.currentValue); }
+    public int getRecoveryCount() { return revoceryCount(toughness.currentValue); }
 
-    protected int getMysticalArmor() { return mysticalArmor(willpower.currentValue); }
+    public int getMysticalArmor() { return mysticalArmor(willpower.currentValue); }
 
-    protected int getPhysicalArmor() { return 0; }
+    public int getPhysicalArmor() { return 0; }
 
-    protected int getInitiative() { return dexterity.currentValue; }
+    public int getInitiative() { return dexterity.currentValue; }
+
+    public Attribute getAttribute(String AttributeName) throws Exception {
+        switch(AttributeName) {
+            case Attribute.DEX:
+                return dexterity;
+            case Attribute.STR:
+                return  strength;
+            case Attribute.TOUGH:
+                return  toughness;
+            case Attribute.PERC:
+                return  perception;
+            case Attribute.WILL:
+                return willpower;
+            case Attribute.CHA:
+                return charisma;
+            default:
+                throw new Exception("No matching attribute found.");
+        }
+    }
 }

@@ -22,12 +22,12 @@ public class ObsidimanRace extends BaseRace {
     }
 
     @Override
-    protected int getWoundThreshold() {
+    public int getWoundThreshold() {
         return woundThreshold(toughness.currentValue + 3);
     }
 
     @Override
-    protected int getPhysicalArmor() {
+    public int getPhysicalArmor() {
         return 3;
     }
 }

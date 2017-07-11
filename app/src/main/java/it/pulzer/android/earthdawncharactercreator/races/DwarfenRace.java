@@ -22,7 +22,7 @@ public class DwarfenRace extends BaseRace {
     }
 
     @Override
-    protected int getCarryCapacity() {
+    public int getCarryCapacity() {
         return carryingLimit(strength.currentValue + 2);
     }
 }
