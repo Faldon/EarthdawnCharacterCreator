@@ -52,31 +52,52 @@ abstract class BaseRace {
 
     protected Map<String, Integer> movementRate = new HashMap<>();
     protected int karmaModification = 0;
-    protected int liftingMaximum = 0;
 
     protected Set<String> racialAbilities = new HashSet<>();
 
-    private int defenseRate(int value) {
-        return (int) Math.ceil((double)value/2) + 1;
-    }
+    public final int getStep(int value) { return (int)Math.ceil((double)value/3) + 1; }
 
-    private int unconsciousThreshold(int value) {
-        return value*2;
+    private int defenseRate(int value) { return (int)Math.ceil((double)value/2) + 1; }
+
+    private int unconsciousThreshold(int value) { return value*2; }
+
+    private int carryingLimit(int value) {
+        switch(value) {
+            case 1:
+                return 10;
+            default:
+                return carryingLimit(value-1) + ((int)Math.ceil((double)value/5))*5;
+        }
     }
 
     private int deathThreshold(int value) {
-        return unconsciousThreshold(value+1) + (int) Math.floor((value-1)/3);
+        return unconsciousThreshold(value+1) + (int)Math.floor((value-1)/3);
     }
 
-    protected int getDefenseRate() {
-        return defenseRate(toughness.currentValue);
-    }
+    private int woundThreshold(int value) { return defenseRate(value) +1; }
 
-    protected int getUnconsciousThreshold() {
-        return unconsciousThreshold(toughness.currentValue);
-    }
+    private int revoceryCount(int value) { return (int)Math.ceil((double)value/6); }
 
-    protected int getDeathThreshold() {
-        return deathThreshold(toughness.currentValue);
-    }
+    private int mysticalArmor(int value) { return value / 5; }
+
+
+    protected int getPhysicalDefenseRate() { return defenseRate(dexterity.currentValue); }
+
+    protected int getMysticalDefenseRate() { return defenseRate(perception.currentValue); }
+
+    protected int getSocialDefenseRate() { return defenseRate(charisma.currentValue); }
+
+    protected int getCarryingLimit() { return carryingLimit(strength.currentValue); }
+
+    protected int getUnconsciousThreshold() { return unconsciousThreshold(toughness.currentValue); }
+
+    protected int getDeathThreshold() { return deathThreshold(toughness.currentValue); }
+
+    protected int getWoundThreshold() { return woundThreshold(toughness.currentValue); }
+
+    protected int getRecoveryCount() { return revoceryCount(toughness.currentValue); }
+
+    protected int getMysticalArmor() { return mysticalArmor(willpower.currentValue); }
+
+
 }

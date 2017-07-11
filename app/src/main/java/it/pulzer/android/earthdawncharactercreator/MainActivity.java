@@ -27,12 +27,6 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        DwarfenRace d = new DwarfenRace();
-        for(int i=1; i<31; i++) {
-            d.toughness.currentValue = i;
-            Log.d("DEATH", String.valueOf(d.getDeathThreshold()));
-        }
-
     }
 
     @Override
