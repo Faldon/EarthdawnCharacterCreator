@@ -60,4 +60,8 @@ public abstract class BaseDiscipline {
     public KarmaModification getKarmaModification(int circle) {
         return null;
     }
+
+    public int getMysticalArmor(int circle) { return 0; }
+
+    public int getPhysicalArmor(int circle) { return 0; }
 }
