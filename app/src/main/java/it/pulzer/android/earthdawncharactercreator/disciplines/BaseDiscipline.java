@@ -22,6 +22,7 @@ public abstract class BaseDiscipline {
     BaseDiscipline() {
         importantAttributes = new HashSet<>();
         karmaModifications = new SparseArray<KarmaModification>();
+        increasedDurability = new int[2];
         increasedDurability[0] = 0;
         increasedDurability[1] = 0;
     }
@@ -53,6 +54,8 @@ public abstract class BaseDiscipline {
     public int getInitiativeModification(int circle) {
         return 0;
     }
+
+    public int getRecoveryCount(int circle) { return 0; }
 
     public KarmaModification getKarmaModification(int circle) {
         return null;
