@@ -43,7 +43,7 @@ public class NethermancerDiscipline extends BaseDiscipline {
     }
 
     @Override
-    public int getMysticalArmor(int circle) {
+    public int getMysticalArmorModification(int circle) {
         return circle>=7 ? 1 : 0;
     }
 

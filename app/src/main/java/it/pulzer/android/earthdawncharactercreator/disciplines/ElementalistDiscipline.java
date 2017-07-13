@@ -42,7 +42,7 @@ public class ElementalistDiscipline extends BaseDiscipline {
     }
 
     @Override
-    public int getRecoveryCount(int circle) {
+    public int getRecoveryCountModification(int circle) {
         return circle>=7 ? 1 : 0;
     }
 

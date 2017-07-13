@@ -55,13 +55,13 @@ public abstract class BaseDiscipline {
         return 0;
     }
 
-    public int getRecoveryCount(int circle) { return 0; }
+    public int getRecoveryCountModification(int circle) { return 0; }
 
     public KarmaModification getKarmaModification(int circle) {
         return null;
     }
 
-    public int getMysticalArmor(int circle) { return 0; }
+    public int getMysticalArmorModification(int circle) { return 0; }
 
-    public int getPhysicalArmor(int circle) { return 0; }
+    public int getPhysicalArmorModification(int circle) { return 0; }
 }
