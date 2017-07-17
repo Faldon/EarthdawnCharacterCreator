@@ -7,23 +7,23 @@ import it.pulzer.android.earthdawncharactercreator.KarmaModification;
  * Created by thopu on 11.07.17.
  */
 
-public class IllusionistDiscipline extends BaseDiscipline {
+public class SkyRaider extends BaseDiscipline {
 
-    public IllusionistDiscipline() {
+    public SkyRaider() {
         super();
         importantAttributes.add(Attribute.CHA);
-        importantAttributes.add(Attribute.PERC);
-        importantAttributes.add(Attribute.WILL);
+        importantAttributes.add(Attribute.DEX);
+        importantAttributes.add(Attribute.STR);
 
-        karmaModifications.put(3, new KarmaModification(1, "Interaction tests"));
-        karmaModifications.put(5, new KarmaModification(1, "Add bonus of 2 to effect step of spell"));
+        karmaModifications.put(3, new KarmaModification(1, "Recovery tests"));
+        karmaModifications.put(5, new KarmaModification(1, "Damage tests of close combat and throwing weapons with min size of one-handed size restriction"));
 
-        increasedDurability[0] = 3;
-        increasedDurability[1] = 4;
+        increasedDurability[0] = 7;
+        increasedDurability[1] = 8;
     }
 
     @Override
-    public int getMysticalDefenseModification(int circle) {
+    public int getPhysicalDefenseModification(int circle) {
         int modification = 0;
         if(circle >= 2) {
             modification += 1;
@@ -43,7 +43,7 @@ public class IllusionistDiscipline extends BaseDiscipline {
     }
 
     @Override
-    public int getInitiativeModification(int circle) {
+    public int getRecoveryCountModification(int circle) {
         return circle>=7 ? 1 : 0;
     }
 }

@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import it.pulzer.android.earthdawncharactercreator.disciplines.ThiefDiscipline;
-import it.pulzer.android.earthdawncharactercreator.races.ElfenRace;
+import it.pulzer.android.earthdawncharactercreator.disciplines.Thief;
+import it.pulzer.android.earthdawncharactercreator.races.Elf;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        Character c = new Character(new ElfenRace(), new ThiefDiscipline());
+        Character c = new Character(new Elf(), new Thief());
         Log.d("ATTRIBUTES", c.getCurrentProperties());
     }
 

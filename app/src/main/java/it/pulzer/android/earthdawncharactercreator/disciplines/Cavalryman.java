@@ -7,22 +7,23 @@ import it.pulzer.android.earthdawncharactercreator.KarmaModification;
  * Created by thopu on 11.07.17.
  */
 
-public class ElementalistDiscipline extends BaseDiscipline {
+public class Cavalryman extends BaseDiscipline {
 
-    public ElementalistDiscipline() {
+    public Cavalryman() {
         super();
+        importantAttributes.add(Attribute.CHA);
+        importantAttributes.add(Attribute.DEX);
         importantAttributes.add(Attribute.PERC);
-        importantAttributes.add(Attribute.WILL);
 
-        karmaModifications.put(3, new KarmaModification(1, "Recovery tests"));
-        karmaModifications.put(5, new KarmaModification(1, "Add one extra ally to target of spell"));
+        karmaModifications.put(3, new KarmaModification(1, "Attack tests of storm attacks"));
+        karmaModifications.put(5, new KarmaModification(1, "Damage tests on mounted attacks"));
 
-        increasedDurability[0] = 3;
-        increasedDurability[1] = 4;
+        increasedDurability[0] = 7;
+        increasedDurability[1] = 8;
     }
 
     @Override
-    public int getMysticalDefenseModification(int circle) {
+    public int getPhysicalDefenseModification(int circle) {
         int modification = 0;
         if(circle >= 2) {
             modification += 1;
@@ -37,7 +38,7 @@ public class ElementalistDiscipline extends BaseDiscipline {
     }
 
     @Override
-    public int getPhysicalDefenseModification(int circle) {
+    public int getSocialDefenseModification(int circle) {
         return circle>=4 ? 1 : 0;
     }
 

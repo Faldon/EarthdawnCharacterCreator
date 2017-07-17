@@ -7,22 +7,23 @@ import it.pulzer.android.earthdawncharactercreator.KarmaModification;
  * Created by thopu on 11.07.17.
  */
 
-public class TroubadourDiscipline extends BaseDiscipline {
+public class Nethermancer extends BaseDiscipline {
 
-    public TroubadourDiscipline() {
+    public Nethermancer() {
         super();
         importantAttributes.add(Attribute.CHA);
         importantAttributes.add(Attribute.PERC);
+        importantAttributes.add(Attribute.WILL);
 
-        karmaModifications.put(3, new KarmaModification(1, "Tests for gathering or remembering information"));
-        karmaModifications.put(5, new KarmaModification(1, "Once per round for actions of another character by encouraging. Requires sight/hearing"));
+        karmaModifications.put(3, new KarmaModification(1, "Any one test per round against demons, demon constructs or undead"));
+        karmaModifications.put(5, new KarmaModification(1, "Raise penalty for 2 points the target is suffering through a spell"));
 
-        increasedDurability[0] = 5;
-        increasedDurability[1] = 6;
+        increasedDurability[0] = 3;
+        increasedDurability[1] = 4;
     }
 
     @Override
-    public int getSocialDefenseModification(int circle) {
+    public int getMysticalDefenseModification(int circle) {
         int modification = 0;
         if(circle >= 2) {
             modification += 1;
@@ -37,12 +38,12 @@ public class TroubadourDiscipline extends BaseDiscipline {
     }
 
     @Override
-    public int getMysticalDefenseModification(int circle) {
+    public int getSocialDefenseModification(int circle) {
         return circle>=4 ? 1 : 0;
     }
 
     @Override
-    public int getInitiativeModification(int circle) {
+    public int getMysticalArmorModification(int circle) {
         return circle>=7 ? 1 : 0;
     }
 }

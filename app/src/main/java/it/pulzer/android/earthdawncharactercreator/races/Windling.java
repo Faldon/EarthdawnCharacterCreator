@@ -4,8 +4,8 @@ package it.pulzer.android.earthdawncharactercreator.races;
  * Created by thopu on 04.07.17.
  */
 
-public class WindlingRace extends BaseRace {
-    public WindlingRace() {
+public class Windling extends BaseRace {
+    public Windling() {
         super();
         dexterity.currentValue=11;
         strength.currentValue=4;

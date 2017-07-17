@@ -7,19 +7,19 @@ import it.pulzer.android.earthdawncharactercreator.KarmaModification;
  * Created by thopu on 11.07.17.
  */
 
-public class SkyRaiderDiscipline extends BaseDiscipline {
+public class Scout extends BaseDiscipline {
 
-    public SkyRaiderDiscipline() {
+    public Scout() {
         super();
-        importantAttributes.add(Attribute.CHA);
         importantAttributes.add(Attribute.DEX);
-        importantAttributes.add(Attribute.STR);
+        importantAttributes.add(Attribute.PERC);
 
-        karmaModifications.put(3, new KarmaModification(1, "Recovery tests"));
-        karmaModifications.put(5, new KarmaModification(1, "Damage tests of close combat and throwing weapons with min size of one-handed size restriction"));
+        karmaModifications.put(1, new KarmaModification(1, "Test for finding something"));
+        karmaModifications.put(3, new KarmaModification(1, "Initiative tests"));
+        karmaModifications.put(5, new KarmaModification(1, "Recovery tests"));
 
-        increasedDurability[0] = 7;
-        increasedDurability[1] = 8;
+        increasedDurability[0] = 5;
+        increasedDurability[1] = 6;
     }
 
     @Override
@@ -38,12 +38,12 @@ public class SkyRaiderDiscipline extends BaseDiscipline {
     }
 
     @Override
-    public int getSocialDefenseModification(int circle) {
+    public int getMysticalDefenseModification(int circle) {
         return circle>=4 ? 1 : 0;
     }
 
     @Override
-    public int getRecoveryCountModification(int circle) {
+    public int getInitiativeModification(int circle) {
         return circle>=7 ? 1 : 0;
     }
 }

@@ -4,8 +4,8 @@ package it.pulzer.android.earthdawncharactercreator.races;
  * Created by thopu on 04.07.17.
  */
 
-public class OrkishRace extends BaseRace {
-    public OrkishRace() {
+public class Ork extends BaseRace {
+    public Ork() {
         super();
         dexterity.currentValue=10;
         strength.currentValue=13;

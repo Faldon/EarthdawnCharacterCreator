@@ -4,8 +4,8 @@ package it.pulzer.android.earthdawncharactercreator.races;
  * Created by thopu on 04.07.17.
  */
 
-public class ObsidimanRace extends BaseRace {
-    public ObsidimanRace() {
+public class Obsidiman extends BaseRace {
+    public Obsidiman() {
         super();
         dexterity.currentValue=8;
         strength.currentValue=18;

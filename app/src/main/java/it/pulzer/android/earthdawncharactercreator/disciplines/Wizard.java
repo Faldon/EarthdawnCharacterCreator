@@ -7,23 +7,23 @@ import it.pulzer.android.earthdawncharactercreator.KarmaModification;
  * Created by thopu on 11.07.17.
  */
 
-public class BeastmasterDiscipline extends BaseDiscipline {
+public class Wizard extends BaseDiscipline {
 
-    public BeastmasterDiscipline() {
+    public Wizard() {
         super();
         importantAttributes.add(Attribute.CHA);
-        importantAttributes.add(Attribute.DEX);
+        importantAttributes.add(Attribute.PERC);
         importantAttributes.add(Attribute.WILL);
 
-        karmaModifications.put(3, new KarmaModification(1, "Recovery tests"));
-        karmaModifications.put(5, new KarmaModification(1, "Damage tests on unarmed combat"));
+        karmaModifications.put(3, new KarmaModification(1, "Tests to remember information (including knowledge tests)"));
+        karmaModifications.put(5, new KarmaModification(1, "Change range of one spell from self to touch."));
 
-        increasedDurability[0] = 7;
-        increasedDurability[1] = 8;
+        increasedDurability[0] = 3;
+        increasedDurability[1] = 4;
     }
 
     @Override
-    public int getPhysicalDefenseModification(int circle) {
+    public int getMysticalDefenseModification(int circle) {
         int modification = 0;
         if(circle >= 2) {
             modification += 1;
@@ -43,7 +43,7 @@ public class BeastmasterDiscipline extends BaseDiscipline {
     }
 
     @Override
-    public int getRecoveryCountModification(int circle) {
+    public int getMysticalArmorModification(int circle) {
         return circle>=7 ? 1 : 0;
     }
 }

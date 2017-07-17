@@ -4,8 +4,8 @@ package it.pulzer.android.earthdawncharactercreator.races;
  * Created by thopu on 04.07.17.
  */
 
-public class ElfenRace extends BaseRace {
-    public ElfenRace() {
+public class Elf extends BaseRace {
+    public Elf() {
         super();
         dexterity.currentValue=12;
         strength.currentValue=10;

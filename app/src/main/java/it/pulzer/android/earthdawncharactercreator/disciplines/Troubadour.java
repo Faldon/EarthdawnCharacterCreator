@@ -7,24 +7,22 @@ import it.pulzer.android.earthdawncharactercreator.KarmaModification;
  * Created by thopu on 11.07.17.
  */
 
-public class WeaponsmithDiscipline extends BaseDiscipline {
+public class Troubadour extends BaseDiscipline {
 
-    public WeaponsmithDiscipline() {
+    public Troubadour() {
         super();
         importantAttributes.add(Attribute.CHA);
         importantAttributes.add(Attribute.PERC);
-        importantAttributes.add(Attribute.WILL);
 
-        karmaModifications.put(1, new KarmaModification(1, "Tests for creating or repairing an item"));
-        karmaModifications.put(3, new KarmaModification(1, "Recovery tests"));
-        karmaModifications.put(5, new KarmaModification(1, "Attack tests with self-made weapons"));
+        karmaModifications.put(3, new KarmaModification(1, "Tests for gathering or remembering information"));
+        karmaModifications.put(5, new KarmaModification(1, "Once per round for actions of another character by encouraging. Requires sight/hearing"));
 
         increasedDurability[0] = 5;
         increasedDurability[1] = 6;
     }
 
     @Override
-    public int getMysticalDefenseModification(int circle) {
+    public int getSocialDefenseModification(int circle) {
         int modification = 0;
         if(circle >= 2) {
             modification += 1;
@@ -39,12 +37,12 @@ public class WeaponsmithDiscipline extends BaseDiscipline {
     }
 
     @Override
-    public int getPhysicalDefenseModification(int circle) {
+    public int getMysticalDefenseModification(int circle) {
         return circle>=4 ? 1 : 0;
     }
 
     @Override
-    public int getMysticalArmorModification(int circle) {
+    public int getInitiativeModification(int circle) {
         return circle>=7 ? 1 : 0;
     }
 }

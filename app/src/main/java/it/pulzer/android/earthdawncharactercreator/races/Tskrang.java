@@ -4,8 +4,8 @@ package it.pulzer.android.earthdawncharactercreator.races;
  * Created by thopu on 04.07.17.
  */
 
-public class TskrangRace extends BaseRace {
-    public TskrangRace() {
+public class Tskrang extends BaseRace {
+    public Tskrang() {
         super();
         dexterity.currentValue=11;
         strength.currentValue=10;

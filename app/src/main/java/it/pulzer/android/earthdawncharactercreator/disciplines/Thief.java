@@ -7,19 +7,20 @@ import it.pulzer.android.earthdawncharactercreator.KarmaModification;
  * Created by thopu on 11.07.17.
  */
 
-public class WarriorDiscipline extends BaseDiscipline {
+public class Thief extends BaseDiscipline {
 
-    public WarriorDiscipline() {
+    public Thief() {
         super();
+        importantAttributes.add(Attribute.CHA);
         importantAttributes.add(Attribute.DEX);
-        importantAttributes.add(Attribute.STR);
-        importantAttributes.add(Attribute.TOUGH);
+        importantAttributes.add(Attribute.PERC);
 
-        karmaModifications.put(3, new KarmaModification(1, "Recovery tests"));
-        karmaModifications.put(5, new KarmaModification(1, "Damage tests in close combat"));
+        karmaModifications.put(1, new KarmaModification(1, "Any Charisma based test to trick someone"));
+        karmaModifications.put(3, new KarmaModification(1, "Initiative tests"));
+        karmaModifications.put(5, new KarmaModification(1, "Attack tests on surprised foes or from dead angle."));
 
-        increasedDurability[0] = 7;
-        increasedDurability[1] = 8;
+        increasedDurability[0] = 5;
+        increasedDurability[1] = 6;
     }
 
     @Override
@@ -38,12 +39,12 @@ public class WarriorDiscipline extends BaseDiscipline {
     }
 
     @Override
-    public int getMysticalDefenseModification(int circle) {
+    public int getSocialDefenseModification(int circle) {
         return circle>=4 ? 1 : 0;
     }
 
     @Override
-    public int getRecoveryCountModification(int circle) {
+    public int getInitiativeModification(int circle) {
         return circle>=7 ? 1 : 0;
     }
 }

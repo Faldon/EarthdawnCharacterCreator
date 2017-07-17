@@ -7,17 +7,16 @@ import it.pulzer.android.earthdawncharactercreator.KarmaModification;
  * Created by thopu on 11.07.17.
  */
 
-public class AirSailorDiscipline extends BaseDiscipline {
+public class Archer extends BaseDiscipline {
 
-    public AirSailorDiscipline() {
+    public Archer() {
         super();
-        importantAttributes.add(Attribute.CHA);
         importantAttributes.add(Attribute.DEX);
-        importantAttributes.add(Attribute.WILL);
+        importantAttributes.add(Attribute.PERC);
 
-        karmaModifications.put(1, new KarmaModification(1, "Action on an air ship per round"));
+        karmaModifications.put(1, new KarmaModification(1, "Sight-based perception tests"));
         karmaModifications.put(3, new KarmaModification(1, "Initiative tests"));
-        karmaModifications.put(5, new KarmaModification(1, "Interaction tests"));
+        karmaModifications.put(5, new KarmaModification(1, "Damage tests with projectile weapons"));
 
         increasedDurability[0] = 5;
         increasedDurability[1] = 6;
@@ -39,12 +38,12 @@ public class AirSailorDiscipline extends BaseDiscipline {
     }
 
     @Override
-    public int getSocialDefenseModification(int circle) {
+    public int getMysticalDefenseModification(int circle) {
         return circle>=4 ? 1 : 0;
     }
 
     @Override
-    public int getRecoveryCountModification(int circle) {
+    public int getInitiativeModification(int circle) {
         return circle>=7 ? 1 : 0;
     }
 }

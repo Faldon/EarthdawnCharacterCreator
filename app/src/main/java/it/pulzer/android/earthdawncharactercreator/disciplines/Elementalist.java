@@ -7,23 +7,22 @@ import it.pulzer.android.earthdawncharactercreator.KarmaModification;
  * Created by thopu on 11.07.17.
  */
 
-public class ArcherDiscipline extends BaseDiscipline {
+public class Elementalist extends BaseDiscipline {
 
-    public ArcherDiscipline() {
+    public Elementalist() {
         super();
-        importantAttributes.add(Attribute.DEX);
         importantAttributes.add(Attribute.PERC);
+        importantAttributes.add(Attribute.WILL);
 
-        karmaModifications.put(1, new KarmaModification(1, "Sight-based perception tests"));
-        karmaModifications.put(3, new KarmaModification(1, "Initiative tests"));
-        karmaModifications.put(5, new KarmaModification(1, "Damage tests with projectile weapons"));
+        karmaModifications.put(3, new KarmaModification(1, "Recovery tests"));
+        karmaModifications.put(5, new KarmaModification(1, "Add one extra ally to target of spell"));
 
-        increasedDurability[0] = 5;
-        increasedDurability[1] = 6;
+        increasedDurability[0] = 3;
+        increasedDurability[1] = 4;
     }
 
     @Override
-    public int getPhysicalDefenseModification(int circle) {
+    public int getMysticalDefenseModification(int circle) {
         int modification = 0;
         if(circle >= 2) {
             modification += 1;
@@ -38,12 +37,12 @@ public class ArcherDiscipline extends BaseDiscipline {
     }
 
     @Override
-    public int getMysticalDefenseModification(int circle) {
+    public int getPhysicalDefenseModification(int circle) {
         return circle>=4 ? 1 : 0;
     }
 
     @Override
-    public int getInitiativeModification(int circle) {
+    public int getRecoveryCountModification(int circle) {
         return circle>=7 ? 1 : 0;
     }
 }

@@ -4,8 +4,8 @@ package it.pulzer.android.earthdawncharactercreator.races;
  * Created by thopu on 04.07.17.
  */
 
-public class DwarfenRace extends BaseRace {
-    public DwarfenRace() {
+public class Dwarf extends BaseRace {
+    public Dwarf() {
         super();
         dexterity.currentValue=9;
         strength.currentValue=10;

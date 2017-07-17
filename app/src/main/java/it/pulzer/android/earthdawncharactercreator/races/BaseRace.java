@@ -97,4 +97,8 @@ public abstract class BaseRace {
                 throw new Exception("No matching attribute found.");
         }
     }
+
+    public String getName() {
+        return this.getClass().getName();
+    }
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Einstellungen</string>
+    <string name="atr_dex">Geschicklichkeit</string>
+    <string name="atr_str">Stärke</string>
+    <string name="atr_tough">Zähigkeit</string>
+    <string name="atr_perc">Wahrnehmung</string>
+    <string name="atr_will">Willenskraft</string>
+    <string name="atr_cha">Charisma</string>
+</resources>

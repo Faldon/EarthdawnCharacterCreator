@@ -4,8 +4,8 @@ package it.pulzer.android.earthdawncharactercreator.races;
  * Created by thopu on 04.07.17.
  */
 
-public class HumanRace extends BaseRace {
-    public HumanRace() {
+public class Human extends BaseRace {
+    public Human() {
         super();
         dexterity.currentValue=10;
         strength.currentValue=10;
