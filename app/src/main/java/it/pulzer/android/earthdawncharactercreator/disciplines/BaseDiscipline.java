@@ -58,7 +58,7 @@ public abstract class BaseDiscipline {
     public int getRecoveryCountModification(int circle) { return 0; }
 
     public KarmaModification getKarmaModification(int circle) {
-        return null;
+        return karmaModifications.get(circle, null);
     }
 
     public int getMysticalArmorModification(int circle) { return 0; }

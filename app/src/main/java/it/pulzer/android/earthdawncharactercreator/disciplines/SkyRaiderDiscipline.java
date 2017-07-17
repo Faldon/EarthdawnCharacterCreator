@@ -46,9 +46,4 @@ public class SkyRaiderDiscipline extends BaseDiscipline {
     public int getRecoveryCountModification(int circle) {
         return circle>=7 ? 1 : 0;
     }
-
-    @Override
-    public KarmaModification getKarmaModification(int circle) {
-        return karmaModifications.get(circle, null);
-    }
 }

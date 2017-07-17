@@ -7,23 +7,34 @@ import it.pulzer.android.earthdawncharactercreator.KarmaModification;
  * Created by thopu on 11.07.17.
  */
 
-public class IllusionistDiscipline extends BaseDiscipline {
+public class SwordmasterDiscipline extends BaseDiscipline {
 
-    public IllusionistDiscipline() {
+    public SwordmasterDiscipline() {
         super();
+        importantAttributes.add(Attribute.DEX);
         importantAttributes.add(Attribute.CHA);
-        importantAttributes.add(Attribute.PERC);
-        importantAttributes.add(Attribute.WILL);
 
         karmaModifications.put(3, new KarmaModification(1, "Interaction tests"));
-        karmaModifications.put(5, new KarmaModification(1, "Add bonus of 2 to effect step of spell"));
+        karmaModifications.put(5, new KarmaModification(1, "Damage tests with close combat weapons"));
 
-        increasedDurability[0] = 3;
-        increasedDurability[1] = 4;
+        increasedDurability[0] = 7;
+        increasedDurability[1] = 8;
     }
 
     @Override
-    public int getMysticalDefenseModification(int circle) {
+    public int getPhysicalDefenseModification(int circle) {
+        int modification = 0;
+        if(circle >= 4) {
+            modification += 1;
+        }
+        if(circle >= 8) {
+            modification += 2;
+        }
+        return modification;
+    }
+
+    @Override
+    public int getSocialDefenseModification(int circle) {
         int modification = 0;
         if(circle >= 2) {
             modification += 1;
@@ -31,15 +42,7 @@ public class IllusionistDiscipline extends BaseDiscipline {
         if(circle >= 6) {
             modification += 2;
         }
-        if(circle >= 8) {
-            modification += 3;
-        }
         return modification;
-    }
-
-    @Override
-    public int getSocialDefenseModification(int circle) {
-        return circle>=4 ? 1 : 0;
     }
 
     @Override

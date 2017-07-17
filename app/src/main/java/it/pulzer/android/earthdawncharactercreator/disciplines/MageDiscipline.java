@@ -7,16 +7,16 @@ import it.pulzer.android.earthdawncharactercreator.KarmaModification;
  * Created by thopu on 11.07.17.
  */
 
-public class IllusionistDiscipline extends BaseDiscipline {
+public class MageDiscipline extends BaseDiscipline {
 
-    public IllusionistDiscipline() {
+    public MageDiscipline() {
         super();
         importantAttributes.add(Attribute.CHA);
         importantAttributes.add(Attribute.PERC);
         importantAttributes.add(Attribute.WILL);
 
-        karmaModifications.put(3, new KarmaModification(1, "Interaction tests"));
-        karmaModifications.put(5, new KarmaModification(1, "Add bonus of 2 to effect step of spell"));
+        karmaModifications.put(3, new KarmaModification(1, "Tests to remember information (including knowledge tests)"));
+        karmaModifications.put(5, new KarmaModification(1, "Change range of one spell from self to touch."));
 
         increasedDurability[0] = 3;
         increasedDurability[1] = 4;
@@ -43,7 +43,7 @@ public class IllusionistDiscipline extends BaseDiscipline {
     }
 
     @Override
-    public int getInitiativeModification(int circle) {
+    public int getMysticalArmorModification(int circle) {
         return circle>=7 ? 1 : 0;
     }
 }
