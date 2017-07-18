@@ -13,7 +13,7 @@ public class Warrior extends BaseDiscipline {
         super();
         importantAttributes.add(Attribute.DEX);
         importantAttributes.add(Attribute.STR);
-        importantAttributes.add(Attribute.TOUGH);
+        importantAttributes.add(Attribute.TOU);
 
         karmaModifications.put(3, new KarmaModification(1, "Recovery tests"));
         karmaModifications.put(5, new KarmaModification(1, "Damage tests in close combat"));

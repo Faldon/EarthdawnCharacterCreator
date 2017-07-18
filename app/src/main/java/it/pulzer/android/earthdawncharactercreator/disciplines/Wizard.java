@@ -12,8 +12,8 @@ public class Wizard extends BaseDiscipline {
     public Wizard() {
         super();
         importantAttributes.add(Attribute.CHA);
-        importantAttributes.add(Attribute.PERC);
-        importantAttributes.add(Attribute.WILL);
+        importantAttributes.add(Attribute.PER);
+        importantAttributes.add(Attribute.WIL);
 
         karmaModifications.put(3, new KarmaModification(1, "Tests to remember information (including knowledge tests)"));
         karmaModifications.put(5, new KarmaModification(1, "Change range of one spell from self to touch."));

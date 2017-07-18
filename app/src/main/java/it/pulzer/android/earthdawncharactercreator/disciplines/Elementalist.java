@@ -11,8 +11,8 @@ public class Elementalist extends BaseDiscipline {
 
     public Elementalist() {
         super();
-        importantAttributes.add(Attribute.PERC);
-        importantAttributes.add(Attribute.WILL);
+        importantAttributes.add(Attribute.PER);
+        importantAttributes.add(Attribute.WIL);
 
         karmaModifications.put(3, new KarmaModification(1, "Recovery tests"));
         karmaModifications.put(5, new KarmaModification(1, "Add one extra ally to target of spell"));

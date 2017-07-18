@@ -1,7 +1,5 @@
 package it.pulzer.android.earthdawncharactercreator;
 
-import android.support.annotation.Nullable;
-
 /**
  * Created by thopu on 11.07.17.
  */
@@ -166,9 +164,11 @@ public class Talent {
     //endregion
 
     //region Action name declaration
-    static final String ACTION_FOCUS = "Focus";
     static final String ACTION_FREE = "Free";
+    static final String ACTION_NA = "Not available";
     static final String ACTION_SIMPLE = "Simple";
+    static final String ACTION_STANDARD = "Standard";
+    static final String ACTION_SUSTAINED = "Sustained";
     //endregion
     
     public String name;

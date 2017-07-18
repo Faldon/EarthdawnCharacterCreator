@@ -12,7 +12,7 @@ public class Scout extends BaseDiscipline {
     public Scout() {
         super();
         importantAttributes.add(Attribute.DEX);
-        importantAttributes.add(Attribute.PERC);
+        importantAttributes.add(Attribute.PER);
 
         karmaModifications.put(1, new KarmaModification(1, "Test for finding something"));
         karmaModifications.put(3, new KarmaModification(1, "Initiative tests"));

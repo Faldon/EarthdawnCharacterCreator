@@ -12,8 +12,8 @@ public class Nethermancer extends BaseDiscipline {
     public Nethermancer() {
         super();
         importantAttributes.add(Attribute.CHA);
-        importantAttributes.add(Attribute.PERC);
-        importantAttributes.add(Attribute.WILL);
+        importantAttributes.add(Attribute.PER);
+        importantAttributes.add(Attribute.WIL);
 
         karmaModifications.put(3, new KarmaModification(1, "Any one test per round against demons, demon constructs or undead"));
         karmaModifications.put(5, new KarmaModification(1, "Raise penalty for 2 points the target is suffering through a spell"));

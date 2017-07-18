@@ -18,7 +18,7 @@ public class AirSailor extends BaseDiscipline {
         super();
         importantAttributes.add(Attribute.CHA);
         importantAttributes.add(Attribute.DEX);
-        importantAttributes.add(Attribute.WILL);
+        importantAttributes.add(Attribute.WIL);
 
         karmaModifications.put(1, new KarmaModification(1, "once per round on any action taken while on board an airship"));
         karmaModifications.put(3, new KarmaModification(1, "on Initiative tests"));

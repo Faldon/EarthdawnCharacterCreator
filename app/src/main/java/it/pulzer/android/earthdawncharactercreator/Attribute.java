@@ -9,9 +9,9 @@ public class Attribute {
     //region Attribute name delaration
     public final static String DEX = "Dexterity";
     public final static String STR = "Strength";
-    public final static String TOUGH = "Toughness";
-    public final static String PERC = "Perception";
-    public final static String WILL = "Willpower";
+    public final static String TOU = "Toughness";
+    public final static String PER = "Perception";
+    public final static String WIL = "Willpower";
     public final static String CHA = "Charisma";
     //endregion
 

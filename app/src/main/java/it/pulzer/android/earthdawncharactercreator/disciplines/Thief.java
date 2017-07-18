@@ -13,7 +13,7 @@ public class Thief extends BaseDiscipline {
         super();
         importantAttributes.add(Attribute.CHA);
         importantAttributes.add(Attribute.DEX);
-        importantAttributes.add(Attribute.PERC);
+        importantAttributes.add(Attribute.PER);
 
         karmaModifications.put(1, new KarmaModification(1, "Any Charisma based test to trick someone"));
         karmaModifications.put(3, new KarmaModification(1, "Initiative tests"));

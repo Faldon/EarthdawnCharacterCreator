@@ -14,9 +14,9 @@ import it.pulzer.android.earthdawncharactercreator.Attribute;
 public abstract class BaseRace {
     Attribute dexterity = new Attribute(Attribute.DEX);
     Attribute strength = new Attribute(Attribute.STR);
-    Attribute toughness = new Attribute(Attribute.TOUGH);
-    Attribute perception = new Attribute(Attribute.PERC);
-    Attribute willpower = new Attribute(Attribute.WILL);
+    Attribute toughness = new Attribute(Attribute.TOU);
+    Attribute perception = new Attribute(Attribute.PER);
+    Attribute willpower = new Attribute(Attribute.WIL);
     Attribute charisma = new Attribute(Attribute.CHA);
 
     Map<String, Integer> movementRate;
@@ -85,11 +85,11 @@ public abstract class BaseRace {
                 return dexterity;
             case Attribute.STR:
                 return  strength;
-            case Attribute.TOUGH:
+            case Attribute.TOU:
                 return  toughness;
-            case Attribute.PERC:
+            case Attribute.PER:
                 return  perception;
-            case Attribute.WILL:
+            case Attribute.WIL:
                 return willpower;
             case Attribute.CHA:
                 return charisma;

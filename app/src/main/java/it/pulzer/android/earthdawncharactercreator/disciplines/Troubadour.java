@@ -12,7 +12,7 @@ public class Troubadour extends BaseDiscipline {
     public Troubadour() {
         super();
         importantAttributes.add(Attribute.CHA);
-        importantAttributes.add(Attribute.PERC);
+        importantAttributes.add(Attribute.PER);
 
         karmaModifications.put(3, new KarmaModification(1, "Tests for gathering or remembering information"));
         karmaModifications.put(5, new KarmaModification(1, "Once per round for actions of another character by encouraging. Requires sight/hearing"));

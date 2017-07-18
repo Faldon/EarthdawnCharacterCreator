@@ -13,7 +13,7 @@ public class Cavalryman extends BaseDiscipline {
         super();
         importantAttributes.add(Attribute.CHA);
         importantAttributes.add(Attribute.DEX);
-        importantAttributes.add(Attribute.PERC);
+        importantAttributes.add(Attribute.PER);
 
         karmaModifications.put(3, new KarmaModification(1, "Attack tests of storm attacks"));
         karmaModifications.put(5, new KarmaModification(1, "Damage tests on mounted attacks"));

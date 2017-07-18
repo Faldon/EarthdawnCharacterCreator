@@ -12,8 +12,8 @@ public class Illusionist extends BaseDiscipline {
     public Illusionist() {
         super();
         importantAttributes.add(Attribute.CHA);
-        importantAttributes.add(Attribute.PERC);
-        importantAttributes.add(Attribute.WILL);
+        importantAttributes.add(Attribute.PER);
+        importantAttributes.add(Attribute.WIL);
 
         karmaModifications.put(3, new KarmaModification(1, "Interaction tests"));
         karmaModifications.put(5, new KarmaModification(1, "Add bonus of 2 to effect step of spell"));

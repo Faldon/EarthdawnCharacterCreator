@@ -12,7 +12,7 @@ public class Archer extends BaseDiscipline {
     public Archer() {
         super();
         importantAttributes.add(Attribute.DEX);
-        importantAttributes.add(Attribute.PERC);
+        importantAttributes.add(Attribute.PER);
 
         karmaModifications.put(1, new KarmaModification(1, "Sight-based perception tests"));
         karmaModifications.put(3, new KarmaModification(1, "Initiative tests"));

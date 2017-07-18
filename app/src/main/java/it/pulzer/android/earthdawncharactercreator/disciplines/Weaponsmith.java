@@ -12,8 +12,8 @@ public class Weaponsmith extends BaseDiscipline {
     public Weaponsmith() {
         super();
         importantAttributes.add(Attribute.CHA);
-        importantAttributes.add(Attribute.PERC);
-        importantAttributes.add(Attribute.WILL);
+        importantAttributes.add(Attribute.PER);
+        importantAttributes.add(Attribute.WIL);
 
         karmaModifications.put(1, new KarmaModification(1, "Tests for creating or repairing an item"));
         karmaModifications.put(3, new KarmaModification(1, "Recovery tests"));

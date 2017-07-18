@@ -13,7 +13,7 @@ public class Beastmaster extends BaseDiscipline {
         super();
         importantAttributes.add(Attribute.CHA);
         importantAttributes.add(Attribute.DEX);
-        importantAttributes.add(Attribute.WILL);
+        importantAttributes.add(Attribute.WIL);
 
         karmaModifications.put(3, new KarmaModification(1, "Recovery tests"));
         karmaModifications.put(5, new KarmaModification(1, "Damage tests on unarmed combat"));
