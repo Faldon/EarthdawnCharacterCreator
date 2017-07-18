@@ -32,6 +32,13 @@ public class MainActivity extends AppCompatActivity {
         });
         Character c = new Character(new Elf(), new Thief());
         Log.d("ATTRIBUTES", c.getCurrentProperties());
+        Log.d("DICEROLL", String.valueOf(StepTable.RollDice(4)));
+        Log.d("DICEROLL", String.valueOf(StepTable.RollDice(6)));
+        Log.d("DICEROLL", String.valueOf(StepTable.RollDice(8)));
+        Log.d("DICEROLL", String.valueOf(StepTable.RollDice(10)));
+        Log.d("DICEROLL", String.valueOf(StepTable.RollDice(12)));
+        Log.d("DICEROLL", String.valueOf(StepTable.RollDice(20)));
+
     }
 
     @Override

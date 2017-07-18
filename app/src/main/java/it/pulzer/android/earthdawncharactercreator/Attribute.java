@@ -5,12 +5,16 @@ package it.pulzer.android.earthdawncharactercreator;
  */
 
 public class Attribute {
+
+    //region Attribute name delaration
     public final static String DEX = "Dexterity";
     public final static String STR = "Strength";
     public final static String TOUGH = "Toughness";
     public final static String PERC = "Perception";
     public final static String WILL = "Willpower";
     public final static String CHA = "Charisma";
+    //endregion
+
     public final int MAX_VALUE = 3;
 
     public String name;

@@ -1,7 +1,10 @@
 package it.pulzer.android.earthdawncharactercreator;
 
+import org.jetbrains.annotations.Contract;
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * Created by thopu on 28.06.17.
@@ -14,8 +17,9 @@ public final class StepTable {
     /**
      * Get the action dice to roll for a difficulty step
      * @param step The difficulty step to role a dice for
-     * @return The needed action dice as string
+     * @return The needed action dice(s)
      */
+    @Contract(pure = true)
     public static String GetActionDice(int step) {
         String dice = "";
         switch(step) {
@@ -144,6 +148,11 @@ public final class StepTable {
         return dice;
     }
 
+    /**
+     * Get the action dice data for rolling the result of an action test
+     * @param step The difficulty step to role the test for
+     * @return A map of dices to roll. Maps dice side to dice count, except side 0 which maps to result modification
+     */
     public static Map<Integer, Integer> GetRequiredDiceData(int step) {
         HashMap<Integer, Integer> dices = new HashMap<Integer, Integer>() {
             {
@@ -331,6 +340,15 @@ public final class StepTable {
             default :
         }
         return dices;
+    }
+
+    /**
+     * Roll a dice
+     * @param sides The total count of sides or eyes of rhe dice to roll
+     * @return The random result
+     */
+    public static int RollDice(int sides) {
+        return (int)(Math.random() * sides + 1);
     }
 
 }
