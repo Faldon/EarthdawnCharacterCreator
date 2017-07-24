@@ -34,9 +34,8 @@ public class Talent {
     public static final String BORROW_SENSE = "Borrow Sense";
     public static final String CALL_ANIMAL_COMPANION = "Call Animal Companion";
     public static final String CALL_MISSILE = "Call Missile";
-    public static final String CALL_MISSLE = "Call Missle";
     public static final String CHARGE = "Charge";
-    public static final String CLAW_FRENCY = "Claw Frency";
+    public static final String CLAW_FRENZY = "Claw Frency";
     public static final String CLAW_SHAPE = "Claw Shape";
     public static final String CLIMBING = "Climbing";
     public static final String COBRA_STRIKE = "Cobra Strike";
@@ -57,7 +56,6 @@ public class Talent {
     public static final String DISTRACT = "Distract";
     public static final String DOMINATE_BEAST = "Dominate Beast";
     public static final String DOUBLECHARGE = "Double-Charge";
-    public static final String DOWN_STRIDE = "Down Stride";
     public static final String DOWN_STRIKE = "Down Strike";
     public static final String EARTH_SKIN = "Earth Skin";
     public static final String ELEMENTAL_HOLD = "Elemental Hold";
@@ -68,7 +66,6 @@ public class Talent {
     public static final String ENHANCED_MATRIX = "Enhanced Matrix";
     public static final String ENHANCE_ANIMAL_COMPANION = "Enhance Animal Companion";
     public static final String ETIQUETTE = "Etiquette";
-    public static final String ETTIQUETTE = "Ettiquette";
     public static final String EVIDENCE_ANALYSIS = "Evidence Analysis";
     public static final String FALSE_SIGHT = "False Sight";
     public static final String FAST_HAND = "Fast Hand";
@@ -102,7 +99,6 @@ public class Talent {
     public static final String MELEE_WEAPONS = "Melee Weapons";
     public static final String MIMIC_VOICE = "Mimic Voice";
     public static final String MISSILE_WEAPONS = "Missile Weapons";
-    public static final String MISSLE_WEAPONS = "Missle Weapons";
     public static final String MOMENTUM_ATTACK = "Momentum Attack";
     public static final String MOUNT_ATTACK = "Mount Attack";
     public static final String MYSTIC_AIM = "Mystic Aim";
@@ -112,7 +108,6 @@ public class Talent {
     public static final String PICKING_POCKETS = "Picking Pockets";
     public static final String POWER_MASK = "Power Mask";
     public static final String READ_AND_WRITE_LANGUAGE = "Read and Write Language";
-    public static final String READ_AND_WRITE_LANGUAGES = "Read and Write Languages";
     public static final String RESEARCH = "Research";
     public static final String RESIST_TAUNT = "Resist Taunt";
     public static final String RIPOSTE = "Riposte";
@@ -143,9 +138,9 @@ public class Talent {
     public static final String TAUNT = "Taunt";
     public static final String TEMPER_FLESH = "Temper Flesh";
     public static final String TENACIOUS_WEAVE = "Tenacious Weave";
+    public static final String THOUGHT_LINK = "Thought Link";
     public static final String THREAD_WEAVING = "Thread Weaving";
     public static final String THROWING_WEAPONS = "Throwing Weapons";
-    public static final String TIGERSPRING = "Tigerspring";
     public static final String TIGER_SPRING = "Tiger Spring";
     public static final String TRACKING = "Tracking";
     public static final String TRICK_RIDING = "Trick Riding";
@@ -170,333 +165,325 @@ public class Talent {
     static final String ACTION_STANDARD = "Standard";
     static final String ACTION_SUSTAINED = "Sustained";
     //endregion
-    
+
+    //region Properties
     public String name;
     public String baseAttribute;
-    public boolean skill;
     public String action;
     public int strain;
+    public int skill;
+    public boolean improviesd;
+    //endregion
 
-    public Talent(String name, String attribute, boolean skill, String action, int strain) {
+    public Talent(String name, String attribute, String action, int strain, int skill, boolean improvised) {
         this.name = name;
         this.baseAttribute = attribute;
         this.skill = skill;
         this.action = action;
         this.strain = strain;
+        this.improviesd = improvised;
     }
 
-    public static Talent create(String talentname) {
-        switch(talentname) {
-            case ACROBATIC_DEFENSE:
-                return new Talent(ACROBATIC_DEFENSE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case AIR_DANCE:
-            	return new Talent(AIR_DANCE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case AIR_SAILING:
-				return new Talent(AIR_SAILING, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case AIR_SPEAKING:
-				return new Talent(AIR_SPEAKING, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case AIR_WEAVING:
-				return new Talent(AIR_WEAVING, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case ANIMAL_BOND:
-				return new Talent(ANIMAL_BOND, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case ANIMAL_COMPANION_DURABILITY:
-				return new Talent(ANIMAL_COMPANION_DURABILITY, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case ANIMAL_POSSESSION:
-				return new Talent(ANIMAL_POSSESSION, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case ANIMAL_TALK:
-				return new Talent(ANIMAL_TALK, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case ANIMAL_TRAINING:
-				return new Talent(ANIMAL_TRAINING, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case ANTICIPATE_BLOW:
-				return new Talent(ANTICIPATE_BLOW, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case ARCANE_MUTTERINGS:
-				return new Talent(ARCANE_MUTTERINGS, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case ARMOR_MOUNT:
-				return new Talent(ARMOR_MOUNT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case ASTRAL_INTERFERENCE:
-				return new Talent(ASTRAL_INTERFERENCE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case ASTRAL_SIGHT:
-				return new Talent(ASTRAL_SIGHT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case AVOID_BLOW:
-				return new Talent(AVOID_BLOW, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case AWARENESS:
-				return new Talent(AWARENESS, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case BANISH:
-				return new Talent(BANISH, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case BANK_SHOT:
-				return new Talent(BANK_SHOT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case BATTLE_BELLOW:
-				return new Talent(BATTLE_BELLOW, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case BATTLE_SHOUT:
-				return new Talent(BATTLE_SHOUT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case BLADE_JUGGLE:
-				return new Talent(BLADE_JUGGLE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case BLOOD_SHARE:
-				return new Talent(BLOOD_SHARE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case BOOK_MEMORY:
-				return new Talent(BOOK_MEMORY, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case BORROW_SENSE:
-				return new Talent(BORROW_SENSE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case CALL_ANIMAL_COMPANION:
-				return new Talent(CALL_ANIMAL_COMPANION, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case CALL_MISSILE:
-				return new Talent(CALL_MISSILE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case CALL_MISSLE:
-				return new Talent(CALL_MISSLE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case CHARGE:
-				return new Talent(CHARGE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case CLAW_FRENCY:
-				return new Talent(CLAW_FRENCY, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case CLAW_SHAPE:
-				return new Talent(CLAW_SHAPE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case CLIMBING:
-				return new Talent(CLIMBING, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case COBRA_STRIKE:
-				return new Talent(COBRA_STRIKE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case COLD_PURIFY:
-				return new Talent(COLD_PURIFY, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case COMMAND_NIGHTFLYER:
-				return new Talent(COMMAND_NIGHTFLYER, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case CONCEAL_OBJECT:
-				return new Talent(CONCEAL_OBJECT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case CONVERSATION:
-				return new Talent(CONVERSATION, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case CREATURE_ANALYSIS:
-				return new Talent(CREATURE_ANALYSIS, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case CRUSHING_BLOW:
-				return new Talent(CRUSHING_BLOW, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case DANGER_SENSE:
-				return new Talent(DANGER_SENSE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case DEAD_FALL:
-				return new Talent(DEAD_FALL, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case DIPLOMACY:
-				return new Talent(DIPLOMACY, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case DIRECTION_ARROW:
-				return new Talent(DIRECTION_ARROW, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case DISARM:
-				return new Talent(DISARM, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case DISARM_TRAP:
-				return new Talent(DISARM_TRAP, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case DISGUISE_SELF:
-				return new Talent(DISGUISE_SELF, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case DISPEL_MAGIC:
-				return new Talent(DISPEL_MAGIC, Attribute.DEX, true, ACTION_SIMPLE, 1);
+    public static Talent create(String name) {
+        switch(name) {
             case DISTRACT:
-				return new Talent(DISTRACT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case DOMINATE_BEAST:
-				return new Talent(DOMINATE_BEAST, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case DOUBLECHARGE:
-				return new Talent(DOUBLECHARGE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case DOWN_STRIDE:
-				return new Talent(DOWN_STRIDE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case DOWN_STRIKE:
-				return new Talent(DOWN_STRIKE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case EARTH_SKIN:
-				return new Talent(EARTH_SKIN, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case ELEMENTAL_HOLD:
-				return new Talent(ELEMENTAL_HOLD, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case ELEMENTAL_TONGUES:
-				return new Talent(ELEMENTAL_TONGUES, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case EMOTION_SONG:
-				return new Talent(EMOTION_SONG, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case EMPATHIC_SENSE:
-				return new Talent(EMPATHIC_SENSE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case ENGAGING_BANTER:
-				return new Talent(ENGAGING_BANTER, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case ENHANCED_MATRIX:
-				return new Talent(ENHANCED_MATRIX, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case ENHANCE_ANIMAL_COMPANION:
-				return new Talent(ENHANCE_ANIMAL_COMPANION, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case ETIQUETTE:
-				return new Talent(ETIQUETTE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case ETTIQUETTE:
-				return new Talent(ETTIQUETTE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case EVIDENCE_ANALYSIS:
-				return new Talent(EVIDENCE_ANALYSIS, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case FALSE_SIGHT:
-				return new Talent(FALSE_SIGHT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case FAST_HAND:
-				return new Talent(FAST_HAND, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case FEARSOME_CHARGE:
-				return new Talent(FEARSOME_CHARGE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case FIREBLOOD:
-				return new Talent(FIREBLOOD, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case FIRE_HEAL:
-				return new Talent(FIRE_HEAL, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case FIRST_IMPRESSION:
-				return new Talent(FIRST_IMPRESSION, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case FLAME_ARROW:
-				return new Talent(FLAME_ARROW, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case FORGE_ARMOR:
-				return new Talent(FORGE_ARMOR, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case FORGE_WEAPON:
-				return new Talent(FORGE_WEAPON, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case FRIGHTEN:
-				return new Talent(FRIGHTEN, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case GLIDING_STRIDE:
-				return new Talent(GLIDING_STRIDE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case GRACEFUL_EXIT:
-				return new Talent(GRACEFUL_EXIT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case GREAT_LEAP:
-				return new Talent(GREAT_LEAP, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case HAGGLE:
-				return new Talent(HAGGLE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case HEARTENING_LAUGH:
-				return new Talent(HEARTENING_LAUGH, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case HOLD_THREAD:
-				return new Talent(HOLD_THREAD, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case HYPNOTIZE:
-				return new Talent(HYPNOTIZE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case IMPRESSIVE_DISPLAY:
-				return new Talent(IMPRESSIVE_DISPLAY, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case INSPIRE_OTHERS:
-				return new Talent(INSPIRE_OTHERS, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case IRON_CONSTITUTION:
-				return new Talent(IRON_CONSTITUTION, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case ITEM_HISTORY:
-				return new Talent(ITEM_HISTORY, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case LASTING_IMPRESSION:
-				return new Talent(LASTING_IMPRESSION, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case LEADERSHIP:
-				return new Talent(LEADERSHIP, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case LIFESIGHT:
-				return new Talent(LIFESIGHT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case LIFE_CHECK:
-				return new Talent(LIFE_CHECK, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case LION_HEART:
-				return new Talent(LION_HEART, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case LOCK_PICKING:
-				return new Talent(LOCK_PICKING, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case LONG_SHOT:
-				return new Talent(LONG_SHOT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case MANEUVER:
-				return new Talent(MANEUVER, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case MELEE_WEAPONS:
-				return new Talent(MELEE_WEAPONS, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case MIMIC_VOICE:
-				return new Talent(MIMIC_VOICE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case MISSILE_WEAPONS:
-				return new Talent(MISSILE_WEAPONS, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case MISSLE_WEAPONS:
-				return new Talent(MISSLE_WEAPONS, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case MOMENTUM_ATTACK:
-				return new Talent(MOMENTUM_ATTACK, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case MOUNT_ATTACK:
-				return new Talent(MOUNT_ATTACK, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case MYSTIC_AIM:
-				return new Talent(MYSTIC_AIM, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case NAVIGATION:
-				return new Talent(NAVIGATION, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case ORBITING_SPY:
-				return new Talent(ORBITING_SPY, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case PATTERNCRAFT:
-				return new Talent(PATTERNCRAFT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case PICKING_POCKETS:
-				return new Talent(PICKING_POCKETS, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case POWER_MASK:
-				return new Talent(POWER_MASK, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case READ_AND_WRITE_LANGUAGE:
-				return new Talent(READ_AND_WRITE_LANGUAGE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case READ_AND_WRITE_LANGUAGES:
-				return new Talent(READ_AND_WRITE_LANGUAGES, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case RESEARCH:
-				return new Talent(RESEARCH, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case RESIST_TAUNT:
-				return new Talent(RESIST_TAUNT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case RIPOSTE:
-				return new Talent(RIPOSTE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case SAFE_PATH:
-				return new Talent(SAFE_PATH, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case SECOND_ATTACK:
-				return new Talent(SECOND_ATTACK, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case SECOND_SHOT:
-				return new Talent(SECOND_SHOT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case SECOND_WEAPON:
-				return new Talent(SECOND_WEAPON, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case SHIELD_BASH:
-				return new Talent(SHIELD_BASH, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case SLOUGH_BLAME:
-				return new Talent(SLOUGH_BLAME, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case SPEAK_LANGUAGE:
-				return new Talent(SPEAK_LANGUAGE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case SPELLCASTING:
-				return new Talent(SPELLCASTING, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case SPIRIT_HOLD:
-				return new Talent(SPIRIT_HOLD, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case SPIRIT_MOUNT:
-				return new Talent(SPIRIT_MOUNT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case SPIRIT_TALK:
-				return new Talent(SPIRIT_TALK, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case SPOT_ARMOR_FLAW:
-				return new Talent(SPOT_ARMOR_FLAW, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case SPRINT:
-				return new Talent(SPRINT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case STANDARD_MATRIX:
-				return new Talent(STANDARD_MATRIX, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case STEALTHY_STRIDE:
-				return new Talent(STEALTHY_STRIDE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case STEELY_STARE:
-				return new Talent(STEELY_STARE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case STEEL_THOUGHT:
-				return new Talent(STEEL_THOUGHT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case STOPPING_AIM:
-				return new Talent(STOPPING_AIM, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case SUMMON:
-				return new Talent(SUMMON, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case SUPPRESS_CURSE:
-				return new Talent(SUPPRESS_CURSE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case SURE_MOUNT:
-				return new Talent(SURE_MOUNT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case SURPRISE_STRIKE:
-				return new Talent(SURPRISE_STRIKE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case SWIFT_KICK:
-				return new Talent(SWIFT_KICK, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case TACTICS:
-				return new Talent(TACTICS, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case TAUNT:
-				return new Talent(TAUNT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case TEMPER_FLESH:
-				return new Talent(TEMPER_FLESH, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case TENACIOUS_WEAVE:
-				return new Talent(TENACIOUS_WEAVE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case THREAD_WEAVING:
-				return new Talent(THREAD_WEAVING, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case THROWING_WEAPONS:
-				return new Talent(THROWING_WEAPONS, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case TIGERSPRING:
-				return new Talent(TIGERSPRING, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case TIGER_SPRING:
-				return new Talent(TIGER_SPRING, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case TRACKING:
-				return new Talent(TRACKING, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case TRICK_RIDING:
-				return new Talent(TRICK_RIDING, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case TRUE_SHOT:
-				return new Talent(TRUE_SHOT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case TRUE_SIGHT:
-				return new Talent(TRUE_SIGHT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case UNARMED_COMBAT:
-				return new Talent(UNARMED_COMBAT, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case WATERFALL_SLAM:
-				return new Talent(WATERFALL_SLAM, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case WHEELING_ATTACK:
-				return new Talent(WHEELING_ATTACK, Attribute.DEX, true, ACTION_SIMPLE, 1);
+                return new Talent(DISTRACT, Attribute.CHA, ACTION_SIMPLE, 1, 1, true);
+            case ANIMAL_TRAINING:
+                return new Talent(ANIMAL_TRAINING, Attribute.CHA, ACTION_SUSTAINED, 0, 1, false);
             case WHEELING_DEFENSE:
-				return new Talent(WHEELING_DEFENSE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case WILDERNESS_SURVIVAL:
-				return new Talent(WILDERNESS_SURVIVAL, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case WILLFORCE:
-				return new Talent(WILLFORCE, Attribute.DEX, true, ACTION_SIMPLE, 1);
-            case WIND_CATCHER:
-				return new Talent(WIND_CATCHER, Attribute.DEX, true, ACTION_SIMPLE, 1);
+                return new Talent(WHEELING_DEFENSE, Attribute.DEX, ACTION_SIMPLE, 1, 5, false);
+            case ACROBATIC_DEFENSE:
+                return new Talent(ACROBATIC_DEFENSE, Attribute.DEX, ACTION_SIMPLE, 1, 1, false);
+            case INSPIRE_OTHERS:
+                return new Talent(INSPIRE_OTHERS, Attribute.CHA, ACTION_STANDARD, 0, 0, false);
+            case ARCANE_MUTTERINGS:
+                return new Talent(ARCANE_MUTTERINGS, Attribute.CHA, ACTION_STANDARD, 0, 1, false);
+            case ITEM_HISTORY:
+                return new Talent(ITEM_HISTORY, Attribute.PER, ACTION_SUSTAINED, 0, 0, false);
+            case ASTRAL_INTERFERENCE:
+                return new Talent(ASTRAL_INTERFERENCE, Attribute.WIL, ACTION_STANDARD, 1, 0, false);
+            case ASTRAL_SIGHT:
+                return new Talent(ASTRAL_SIGHT, Attribute.PER, ACTION_SIMPLE, 1, 0, false);
+            case TEMPER_FLESH:
+                return new Talent(TEMPER_FLESH, Attribute.WIL, ACTION_SUSTAINED, 0, 0, false);
+            case AWARENESS:
+                return new Talent(AWARENESS, Attribute.PER, ACTION_SIMPLE, 0, 1, true);
+            case STOPPING_AIM:
+                return new Talent(STOPPING_AIM, Attribute.CHA, ACTION_STANDARD, 1, 0, false);
+            case IMPRESSIVE_DISPLAY:
+                return new Talent(IMPRESSIVE_DISPLAY, null, ACTION_SIMPLE, 1, 5, false);
+            case SUMMON:
+                return new Talent(SUMMON, Attribute.PER, ACTION_SUSTAINED, 0, 0, false);
+            case EVIDENCE_ANALYSIS:
+                return new Talent(EVIDENCE_ANALYSIS, Attribute.PER, ACTION_SUSTAINED, 1, 5, false);
+            case TRUE_SHOT:
+                return new Talent(TRUE_SHOT, Attribute.DEX, ACTION_STANDARD, 2, 0, false);
+            case LASTING_IMPRESSION:
+                return new Talent(LASTING_IMPRESSION, Attribute.CHA, ACTION_STANDARD, 0, 0, false);
+            case CLAW_FRENZY:
+                return new Talent(CLAW_FRENZY, Attribute.DEX, ACTION_STANDARD, 1, 0, false);
+            case FLAME_ARROW:
+                return new Talent(FLAME_ARROW, Attribute.WIL, ACTION_FREE, 1, 0, false);
+            case BOOK_MEMORY:
+                return new Talent(BOOK_MEMORY, Attribute.WIL, ACTION_STANDARD, 0, 0, false);
+            case DIPLOMACY:
+                return new Talent(DIPLOMACY, Attribute.CHA, ACTION_SUSTAINED, 0, 1, false);
+            case DOUBLECHARGE:
+                return new Talent(DOUBLECHARGE, Attribute.DEX, ACTION_SIMPLE, 1, 0, false);
+            case IRON_CONSTITUTION:
+                return new Talent(IRON_CONSTITUTION, Attribute.TOU, ACTION_FREE, 0, 0, false);
+            case STEEL_THOUGHT:
+                return new Talent(STEEL_THOUGHT, Attribute.WIL, ACTION_FREE, 4, 0, false);
+            case GRACEFUL_EXIT:
+                return new Talent(GRACEFUL_EXIT, Attribute.CHA, ACTION_STANDARD, 0, 1, false);
+            case ELEMENTAL_HOLD:
+                return new Talent(ELEMENTAL_HOLD, Attribute.WIL, ACTION_STANDARD, 1, 0, false);
+            case ELEMENTAL_TONGUES:
+                return new Talent(ELEMENTAL_TONGUES, Attribute.PER, ACTION_STANDARD, 1, 0, false);
+            case EMPATHIC_SENSE:
+                return new Talent(EMPATHIC_SENSE, Attribute.CHA, ACTION_STANDARD, 1, 0, false);
+            case DISARM:
+                return new Talent(DISARM, Attribute.DEX, ACTION_STANDARD, 1, 5, false);
+            case EARTH_SKIN:
+                return new Talent(EARTH_SKIN, Attribute.TOU, ACTION_STANDARD, 0, 0, false);
+            case FIRST_IMPRESSION:
+                return new Talent(FIRST_IMPRESSION, Attribute.CHA, ACTION_STANDARD, 0, 1, false);
+            case ENHANCED_MATRIX:
+                return new Talent(ENHANCED_MATRIX, null, ACTION_NA, 0, 0, false);
+            case ETIQUETTE:
+                return new Talent(ETIQUETTE, Attribute.CHA, ACTION_SUSTAINED, 0, 1, true);
+            case HOLD_THREAD:
+                return new Talent(HOLD_THREAD, Attribute.WIL, ACTION_SIMPLE, 1, 0, false);
+            case THREAD_WEAVING:
+                return new Talent(THREAD_WEAVING, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case DISARM_TRAP:
+                return new Talent(DISARM_TRAP, Attribute.DEX, ACTION_STANDARD, 1, 1, false);
+            case HAGGLE:
+                return new Talent(HAGGLE, Attribute.CHA, ACTION_SUSTAINED, 0, 1, true);
+            case FIREBLOOD:
+                return new Talent(FIREBLOOD, Attribute.TOU, ACTION_STANDARD, 0, 0, false);
+            case FAST_HAND:
+                return new Talent(FAST_HAND, Attribute.DEX, ACTION_STANDARD, 1, 5, false);
+            case SUPPRESS_CURSE:
+                return new Talent(SUPPRESS_CURSE, Attribute.WIL, ACTION_STANDARD, 1, 0, false);
+            case RESEARCH:
+                return new Talent(RESEARCH, Attribute.PER, ACTION_SUSTAINED, 0, 1, true);
+            case SPEAK_LANGUAGE:
+                return new Talent(SPEAK_LANGUAGE, Attribute.PER, ACTION_STANDARD, 1, 0, false);
+            case LEADERSHIP:
+                return new Talent(LEADERSHIP, Attribute.CHA, ACTION_SUSTAINED, 0, 5, false);
+            case FEARSOME_CHARGE:
+                return new Talent(FEARSOME_CHARGE, Attribute.CHA, ACTION_SIMPLE, 2, 0, false);
+            case THOUGHT_LINK:
+                return new Talent(THOUGHT_LINK, Attribute.PER, ACTION_STANDARD, 1, 0, false);
+            case DANGER_SENSE:
+                return new Talent(DANGER_SENSE, Attribute.DEX, ACTION_FREE, 1, 1, false);
+            case EMOTION_SONG:
+                return new Talent(EMOTION_SONG, Attribute.CHA, ACTION_SUSTAINED, 0, 1, false);
+            case CONCEAL_OBJECT:
+                return new Talent(CONCEAL_OBJECT, Attribute.DEX, ACTION_STANDARD, 1, 5, false);
+            case SPIRIT_HOLD:
+                return new Talent(SPIRIT_HOLD, Attribute.WIL, ACTION_STANDARD, 1, 0, false);
+            case SPIRIT_MOUNT:
+                return new Talent(SPIRIT_MOUNT, Attribute.PER, ACTION_STANDARD, 1, 0, false);
+            case SPIRIT_TALK:
+                return new Talent(SPIRIT_TALK, Attribute.PER, ACTION_STANDARD, 1, 0, false);
             case WINNING_SMILE:
-				return new Talent(WINNING_SMILE, Attribute.DEX, true, ACTION_SIMPLE, 1);
+                return new Talent(WINNING_SMILE, Attribute.CHA, ACTION_STANDARD, 0, 0, false);
+            case BANK_SHOT:
+                return new Talent(BANK_SHOT, Attribute.DEX, ACTION_SIMPLE, 1, 0, false);
+            case DOWN_STRIKE:
+                return new Talent(DOWN_STRIKE, Attribute.STR, ACTION_FREE, 1, 0, false);
+            case TENACIOUS_WEAVE:
+                return new Talent(TENACIOUS_WEAVE, Attribute.WIL, ACTION_FREE, 1, 0, false);
+            case FIRE_HEAL:
+                return new Talent(FIRE_HEAL, Attribute.WIL, ACTION_SUSTAINED, 0, 0, false);
+            case STEALTHY_STRIDE:
+                return new Talent(STEALTHY_STRIDE, Attribute.DEX, ACTION_SIMPLE, 0, 1, false);
+            case HEARTENING_LAUGH:
+                return new Talent(HEARTENING_LAUGH, Attribute.CHA, ACTION_SIMPLE, 1, 1, false);
+            case AVOID_BLOW:
+                return new Talent(AVOID_BLOW, Attribute.DEX, ACTION_FREE, 1, 1, false);
             case WOOD_SKIN:
-				return new Talent(WOOD_SKIN, Attribute.DEX, true, ACTION_SIMPLE, 1);
+                return new Talent(WOOD_SKIN, Attribute.TOU, ACTION_STANDARD, 0, 0, false);
+            case HYPNOTIZE:
+                return new Talent(HYPNOTIZE, Attribute.CHA, ACTION_SUSTAINED, 1, 5, false);
+            case FALSE_SIGHT:
+                return new Talent(FALSE_SIGHT, Attribute.WIL, ACTION_FREE, 1, 0, false);
+            case BATTLE_SHOUT:
+                return new Talent(BATTLE_SHOUT, Attribute.CHA, ACTION_SIMPLE, 1, 1, false);
+            case ANTICIPATE_BLOW:
+                return new Talent(ANTICIPATE_BLOW, Attribute.PER, ACTION_SIMPLE, 1, 1, false);
+            case CLIMBING:
+                return new Talent(CLIMBING, Attribute.DEX, ACTION_STANDARD, 0, 1, true);
+            case BLADE_JUGGLE:
+                return new Talent(BLADE_JUGGLE, Attribute.DEX, ACTION_STANDARD, 1, 5, false);
+            case COBRA_STRIKE:
+                return new Talent(COBRA_STRIKE, Attribute.DEX, ACTION_FREE, 2, 0, false);
+            case DIRECTION_ARROW:
+                return new Talent(DIRECTION_ARROW, Attribute.PER, ACTION_STANDARD, 2, 0, false);
+            case CONVERSATION:
+                return new Talent(CONVERSATION, Attribute.CHA, ACTION_SUSTAINED, 0, 1, true);
+            case CLAW_SHAPE:
+                return new Talent(CLAW_SHAPE, Attribute.STR, ACTION_SIMPLE, 0, 0, false);
+            case ORBITING_SPY:
+                return new Talent(ORBITING_SPY, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case TRICK_RIDING:
+                return new Talent(TRICK_RIDING, Attribute.DEX, ACTION_SIMPLE, 1, 1, false);
+            case LIFESIGHT:
+                return new Talent(LIFESIGHT, Attribute.PER, ACTION_SIMPLE, 1, 0, false);
+            case READ_AND_WRITE_LANGUAGE:
+                return new Talent(READ_AND_WRITE_LANGUAGE, Attribute.PER, ACTION_SUSTAINED, 1, 0, false);
+            case LIFE_CHECK:
+                return new Talent(LIFE_CHECK, Attribute.TOU, ACTION_FREE, 0, 0, false);
+            case LION_HEART:
+                return new Talent(LION_HEART, Attribute.WIL, ACTION_FREE, 1, 0, false);
+            case GLIDING_STRIDE:
+                return new Talent(GLIDING_STRIDE, Attribute.DEX, ACTION_FREE, 1, 0, false);
+            case AIR_SAILING:
+                return new Talent(AIR_SAILING, Attribute.WIL, ACTION_SUSTAINED, 0, 1, false);
+            case AIR_DANCE:
+                return new Talent(AIR_DANCE, Attribute.DEX, ACTION_FREE, 2, 0, false);
+            case POWER_MASK:
+                return new Talent(POWER_MASK, Attribute.WIL, ACTION_STANDARD, 1, 0, false);
+            case DISPEL_MAGIC:
+                return new Talent(DISPEL_MAGIC, Attribute.WIL, ACTION_STANDARD, 1, 0, false);
+            case MYSTIC_AIM:
+                return new Talent(MYSTIC_AIM, Attribute.PER, ACTION_SIMPLE, 1, 0, false);
+            case DISGUISE_SELF:
+                return new Talent(DISGUISE_SELF, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case MANEUVER:
+                return new Talent(MANEUVER, Attribute.DEX, ACTION_SIMPLE, 1, 1, false);
+            case ANIMAL_POSSESSION:
+                return new Talent(ANIMAL_POSSESSION, Attribute.WIL, ACTION_STANDARD, 2, 0, false);
+            case COMMAND_NIGHTFLYER:
+                return new Talent(COMMAND_NIGHTFLYER, Attribute.WIL, ACTION_SUSTAINED, 1, 0, false);
+            case SWIFT_KICK:
+                return new Talent(SWIFT_KICK, Attribute.DEX, ACTION_SIMPLE, 1, 1, false);
+            case MELEE_WEAPONS:
+                return new Talent(MELEE_WEAPONS, Attribute.DEX, ACTION_STANDARD, 0, 1, true);
+            case NAVIGATION:
+                return new Talent(NAVIGATION, Attribute.PER, ACTION_SUSTAINED, 0, 1, false);
+            case CALL_MISSILE:
+                return new Talent(CALL_MISSILE, Attribute.PER, ACTION_SIMPLE, 1, 0, false);
+            case MISSILE_WEAPONS:
+                return new Talent(MISSILE_WEAPONS, Attribute.DEX, ACTION_STANDARD, 0, 1, true);
+            case COLD_PURIFY:
+                return new Talent(COLD_PURIFY, Attribute.WIL, ACTION_SUSTAINED, 0, 0, false);
+            case ARMOR_MOUNT:
+                return new Talent(ARMOR_MOUNT, Attribute.WIL, ACTION_SIMPLE, 1, 0, false);
+            case MOUNT_ATTACK:
+                return new Talent(MOUNT_ATTACK, Attribute.DEX, ACTION_SIMPLE, 1, 5, false);
+            case RIPOSTE:
+                return new Talent(RIPOSTE, Attribute.DEX, ACTION_FREE, 2, 5, false);
+            case FORGE_ARMOR:
+                return new Talent(FORGE_ARMOR, Attribute.PER, ACTION_SUSTAINED, 0, 0, false);
+            case BLOOD_SHARE:
+                return new Talent(BLOOD_SHARE, Attribute.TOU, ACTION_STANDARD, 0, 0, false);
+            case SHIELD_BASH:
+                return new Talent(SHIELD_BASH, Attribute.STR, ACTION_SIMPLE, 1, 1, false);
+            case BATTLE_BELLOW:
+                return new Talent(BATTLE_BELLOW, Attribute.CHA, ACTION_SIMPLE, 1, 5, false);
+            case LOCK_PICKING:
+                return new Talent(LOCK_PICKING, Attribute.DEX, ACTION_STANDARD, 0, 1, false);
+            case CRUSHING_BLOW:
+                return new Talent(CRUSHING_BLOW, Attribute.STR, ACTION_FREE, 1, 5, false);
+            case SLOUGH_BLAME:
+                return new Talent(SLOUGH_BLAME, Attribute.CHA, ACTION_STANDARD, 1, 5, true);
+            case SPOT_ARMOR_FLAW:
+                return new Talent(SPOT_ARMOR_FLAW, Attribute.PER, ACTION_SIMPLE, 1, 0, false);
+            case WHEELING_ATTACK:
+                return new Talent(WHEELING_ATTACK, Attribute.DEX, ACTION_STANDARD, 1, 5, false);
+            case MOMENTUM_ATTACK:
+                return new Talent(MOMENTUM_ATTACK, Attribute.DEX, ACTION_SIMPLE, 1, 0, false);
+            case SAFE_PATH:
+                return new Talent(SAFE_PATH, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case SURE_MOUNT:
+                return new Talent(SURE_MOUNT, Attribute.STR, ACTION_FREE, 0, 1, false);
+            case SPRINT:
+                return new Talent(SPRINT, null, ACTION_SIMPLE, 1, 0, false);
+            case SPELLCASTING:
+                return new Talent(SPELLCASTING, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case TRACKING:
+                return new Talent(TRACKING, Attribute.PER, ACTION_STANDARD, 0, 1, true);
+            case STEELY_STARE:
+                return new Talent(STEELY_STARE, Attribute.CHA, ACTION_STANDARD, 1, 0, false);
+            case STANDARD_MATRIX:
+                return new Talent(STANDARD_MATRIX, null, ACTION_NA, 0, 0, false);
             case WOUND_BALANCE:
-				return new Talent(WOUND_BALANCE, Attribute.DEX, true, ACTION_SIMPLE, 1);
+                return new Talent(WOUND_BALANCE, Attribute.STR, ACTION_FREE, 0, 1, false);
+            case RESIST_TAUNT:
+                return new Talent(RESIST_TAUNT, Attribute.WIL, ACTION_FREE, 1, 5, true);
+            case MIMIC_VOICE:
+                return new Talent(MIMIC_VOICE, Attribute.CHA, ACTION_SIMPLE, 0, 1, false);
+            case PATTERNCRAFT:
+                return new Talent(PATTERNCRAFT, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case CHARGE:
+                return new Talent(CHARGE, Attribute.STR, ACTION_FREE, 0, 1, false);
+            case TACTICS:
+                return new Talent(TACTICS, Attribute.PER, ACTION_STANDARD, 0, 5, false);
+            case PICKING_POCKETS:
+                return new Talent(PICKING_POCKETS, Attribute.DEX, ACTION_STANDARD, 0, 1, false);
+            case CREATURE_ANALYSIS:
+                return new Talent(CREATURE_ANALYSIS, Attribute.PER, ACTION_SIMPLE, 1, 0, false);
+            case DOMINATE_BEAST:
+                return new Talent(DOMINATE_BEAST, Attribute.WIL, ACTION_STANDARD, 1, 0, false);
+            case ANIMAL_BOND:
+                return new Talent(ANIMAL_BOND, Attribute.CHA, ACTION_STANDARD, 0, 1, false);
+            case CALL_ANIMAL_COMPANION:
+                return new Talent(CALL_ANIMAL_COMPANION, Attribute.WIL, ACTION_STANDARD, 1, 0, false);
+            case ENHANCE_ANIMAL_COMPANION:
+                return new Talent(ENHANCE_ANIMAL_COMPANION, Attribute.WIL, ACTION_SUSTAINED, 0, 0, false);
+            case BORROW_SENSE:
+                return new Talent(BORROW_SENSE, Attribute.WIL, ACTION_STANDARD, 0, 0, false);
+            case ANIMAL_TALK:
+                return new Talent(ANIMAL_TALK, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case TIGER_SPRING:
+                return new Talent(TIGER_SPRING, null, ACTION_FREE, 1, 0, false);
+            case DEAD_FALL:
+                return new Talent(DEAD_FALL, Attribute.WIL, ACTION_SIMPLE, 1, 0, false);
+            case SURPRISE_STRIKE:
+                return new Talent(SURPRISE_STRIKE, Attribute.STR, ACTION_FREE, 1, 1, false);
+            case ANIMAL_COMPANION_DURABILITY:
+                return new Talent(ANIMAL_COMPANION_DURABILITY, null, ACTION_NA, 0, 0, false);
+            case TRUE_SIGHT:
+                return new Talent(TRUE_SIGHT, null, ACTION_NA, 0, 0, false);
+            case FRIGHTEN:
+                return new Talent(FRIGHTEN, Attribute.WIL, ACTION_STANDARD, 0, 0, false);
+            case BANISH:
+                return new Talent(BANISH, Attribute.WIL, ACTION_STANDARD, 1, 0, false);
+            case TAUNT:
+                return new Talent(TAUNT, Attribute.CHA, ACTION_SIMPLE, 1, 1, false);
+            case FORGE_WEAPON:
+                return new Talent(FORGE_WEAPON, Attribute.PER, ACTION_SUSTAINED, 0, 0, false);
+            case UNARMED_COMBAT:
+                return new Talent(UNARMED_COMBAT, Attribute.DEX, ACTION_STANDARD, 0, 1, true);
+            case WATERFALL_SLAM:
+                return new Talent(WATERFALL_SLAM, null, ACTION_FREE, 1, 0, false);
+            case LONG_SHOT:
+                return new Talent(LONG_SHOT, null, ACTION_SIMPLE, 1, 0, false);
+            case GREAT_LEAP:
+                return new Talent(GREAT_LEAP, Attribute.DEX, ACTION_FREE, 1, 1, false);
+            case WILDERNESS_SURVIVAL:
+                return new Talent(WILDERNESS_SURVIVAL, Attribute.PER, ACTION_SUSTAINED, 0, 1, true);
+            case WILLFORCE:
+                return new Talent(WILLFORCE, Attribute.WIL, ACTION_FREE, 1, 0, false);
+            case WIND_CATCHER:
+                return new Talent(WIND_CATCHER, Attribute.WIL, ACTION_STANDARD, 1, 0, false);
+            case AIR_SPEAKING:
+                return new Talent(AIR_SPEAKING, Attribute.PER, ACTION_SIMPLE, 1, 0, false);
+            case ENGAGING_BANTER:
+                return new Talent(ENGAGING_BANTER, Attribute.CHA, ACTION_STANDARD, 0, 1, false);
+            case THROWING_WEAPONS:
+                return new Talent(THROWING_WEAPONS, Attribute.DEX, ACTION_STANDARD, 0, 1, true);
+            case SECOND_ATTACK:
+                return new Talent(SECOND_ATTACK, Attribute.DEX, ACTION_SIMPLE, 2, 5, false);
+            case SECOND_SHOT:
+                return new Talent(SECOND_SHOT, Attribute.DEX, ACTION_SIMPLE, 2, 5, false);
+            case SECOND_WEAPON:
+                return new Talent(SECOND_WEAPON, Attribute.DEX, ACTION_SIMPLE, 1, 5, false);
             default:
-                return new Talent(talentname, null, false, null, 0);
+                return new Talent(name, null, null, 0, 0, false);
         }
     }
 
