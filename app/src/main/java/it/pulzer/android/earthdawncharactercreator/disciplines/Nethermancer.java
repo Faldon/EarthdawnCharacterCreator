@@ -76,7 +76,7 @@ public class Nethermancer extends BaseDiscipline {
                     add(new DiscipleTalent(getTalent(Talent.STEELY_STARE), false, false));
                     add(new DiscipleTalent(getTalent(Talent.TENACIOUS_WEAVE), false, false));
                     add(new DiscipleTalent(getTalent(Talent.ENHANCED_MATRIX), true, true));
-                    add(new DiscipleTalent(getTalent(Talent.SUMMON), true, false));
+                    add(new DiscipleTalent(getTalent(Talent.SUMMON_ALLY_SPIRITS), true, false));
                 }
             });
             setTalents(6, new HashSet<DiscipleTalent>() {

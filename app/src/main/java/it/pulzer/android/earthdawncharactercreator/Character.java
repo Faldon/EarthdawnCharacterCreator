@@ -24,6 +24,14 @@ public class Character {
         trainedTalents = new HashSet<>();
     }
 
+    public BaseRace getRace() {
+        return race;
+    }
+
+    public BaseDiscipline getDiscipline() {
+        return discipline;
+    }
+
     public String getCurrentProperties() {
         String output = "DEX\tSTR\tTOU\tPER\tWIL\tCHA\n";
         try {

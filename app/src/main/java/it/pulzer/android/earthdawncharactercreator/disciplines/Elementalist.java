@@ -75,7 +75,7 @@ public class Elementalist extends BaseDiscipline {
                     add(new DiscipleTalent(getTalent(Talent.STEEL_THOUGHT), false, false));
                     add(new DiscipleTalent(getTalent(Talent.TENACIOUS_WEAVE), false, false));
                     add(new DiscipleTalent(getTalent(Talent.ENHANCED_MATRIX), true, false));
-                    add(new DiscipleTalent(getTalent(Talent.SUMMON), true, false));
+                    add(new DiscipleTalent(getTalent(Talent.SUMMON_ELEMENTAL_SPIRITS), true, false));
                 }
             });
             setTalents(6, new HashSet<DiscipleTalent>() {

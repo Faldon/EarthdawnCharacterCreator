@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import it.pulzer.android.earthdawncharactercreator.disciplines.BaseDiscipline;
 import it.pulzer.android.earthdawncharactercreator.disciplines.Thief;
 import it.pulzer.android.earthdawncharactercreator.races.Elf;
 
@@ -38,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
         Log.d("DICEROLL", String.valueOf(StepTable.RollDice(10)));
         Log.d("DICEROLL", String.valueOf(StepTable.RollDice(12)));
         Log.d("DICEROLL", String.valueOf(StepTable.RollDice(20)));
+
+        for(BaseDiscipline.DiscipleTalent t : c.getDiscipline().getAvailableTalents(1)) {
+            Log.d("TALENT", t.getTalent().name);
+        }
+        Log.d("DISCIPLINET", String.valueOf(c.getDiscipline().isDisciplineTalent(Talent.THIEF_WEAVING)));
 
     }
 

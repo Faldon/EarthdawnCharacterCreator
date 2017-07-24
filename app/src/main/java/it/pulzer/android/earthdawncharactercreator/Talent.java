@@ -138,7 +138,8 @@ public class Talent {
     public static final String STEEL_THOUGHT = "Steel Thought";
     public static final String STOPPING_AIM = "Stopping Aim";
     public static final String STORY_WEAVING = "Story Weaving";
-    public static final String SUMMON = "Summon";
+    public static final String SUMMON_ALLY_SPIRITS = "Summon [Ally Spirits]";
+    public static final String SUMMON_ELEMENTAL_SPIRITS = "Summon [Elemental Spirit]";
     public static final String SUPPRESS_CURSE = "Suppress Curse";
     public static final String SURE_MOUNT = "Sure Mount";
     public static final String SURPRISE_STRIKE = "Surprise Strike";
@@ -226,8 +227,10 @@ public class Talent {
                 return new Talent(STOPPING_AIM, Attribute.CHA, ACTION_STANDARD, 1, 0, false);
             case IMPRESSIVE_DISPLAY:
                 return new Talent(IMPRESSIVE_DISPLAY, null, ACTION_SIMPLE, 1, 5, false);
-            case SUMMON:
-                return new Talent(SUMMON, Attribute.PER, ACTION_SUSTAINED, 0, 0, false);
+            case SUMMON_ALLY_SPIRITS:
+                return new Talent(SUMMON_ALLY_SPIRITS, Attribute.PER, ACTION_SUSTAINED, 0, 0, false);
+            case SUMMON_ELEMENTAL_SPIRITS:
+                return new Talent(SUMMON_ELEMENTAL_SPIRITS, Attribute.PER, ACTION_SUSTAINED, 0, 0, false);
             case EVIDENCE_ANALYSIS:
                 return new Talent(EVIDENCE_ANALYSIS, Attribute.PER, ACTION_SUSTAINED, 1, 5, false);
             case TRUE_SHOT:
@@ -496,6 +499,36 @@ public class Talent {
                 return new Talent(SECOND_SHOT, Attribute.DEX, ACTION_SIMPLE, 2, 5, false);
             case SECOND_WEAPON:
                 return new Talent(SECOND_WEAPON, Attribute.DEX, ACTION_SIMPLE, 1, 5, false);
+            case AIR_WEAVING:
+                return new Talent(AIR_WEAVING, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case ARROW_WEAVING:
+                return new Talent(ARROW_WEAVING, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case BEAST_WEAVING:
+                return new Talent(BEAST_WEAVING, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case RIDER_WEAVING:
+                return new Talent(RIDER_WEAVING, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case ELEMENTALISM:
+                return new Talent(ELEMENTALISM, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case ILLUSIONISM:
+                return new Talent(ILLUSIONISM, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case NETHERMANCY:
+                return new Talent(NETHERMANCY, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case SCOUT_WEAVING:
+                return new Talent(SCOUT_WEAVING, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case WEAPON_WEAVING:
+                return new Talent(WEAPON_WEAVING, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case SKY_WEAVING:
+                return new Talent(SKY_WEAVING, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case THIEF_WEAVING:
+                return new Talent(THIEF_WEAVING, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case STORY_WEAVING:
+                return new Talent(STORY_WEAVING, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case WAR_WEAVING:
+                return new Talent(WAR_WEAVING, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case THREAD_SMITHING:
+                return new Talent(THREAD_SMITHING, Attribute.PER, ACTION_STANDARD, 0, 0, false);
+            case WIZARDRY:
+                return new Talent(WIZARDRY, Attribute.PER, ACTION_STANDARD, 0, 0, false);
             default:
                 return new Talent(name, null, null, 0, 0, false);
         }
