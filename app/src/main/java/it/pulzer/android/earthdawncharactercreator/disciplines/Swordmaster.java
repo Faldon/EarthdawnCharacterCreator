@@ -1,7 +1,12 @@
 package it.pulzer.android.earthdawncharactercreator.disciplines;
 
+import android.util.Log;
+
+import java.util.HashSet;
+
 import it.pulzer.android.earthdawncharactercreator.Attribute;
 import it.pulzer.android.earthdawncharactercreator.KarmaModification;
+import it.pulzer.android.earthdawncharactercreator.Talent;
 
 /**
  * Created by thopu on 11.07.17.
@@ -19,6 +24,77 @@ public class Swordmaster extends BaseDiscipline {
 
         increasedDurability[0] = 7;
         increasedDurability[1] = 8;
+
+        try {
+            setTalents(1, new HashSet<DiscipleTalent>() {
+                {
+                    add(new DiscipleTalent(getTalent(Talent.ACROBATIC_DEFENSE), false, false));
+                    add(new DiscipleTalent(getTalent(Talent.ANTICIPATE_BLOW), false, false));
+                    add(new DiscipleTalent(getTalent(Talent.DANGER_SENSE), false, false));
+                    add(new DiscipleTalent(getTalent(Talent.DISTRACT), false, false));
+                    add(new DiscipleTalent(getTalent(Talent.IMPRESSIVE_DISPLAY), false, false));
+                    add(new DiscipleTalent(getTalent(Talent.SPEAK_LANGUAGE), false, false));
+                    add(new DiscipleTalent(getTalent(Talent.TIGER_SPRING), false, false));
+                    add(new DiscipleTalent(getTalent(Talent.UNARMED_COMBAT), false, false));
+                    add(new DiscipleTalent(getTalent(Talent.WINNING_SMILE), false, false));
+                    add(new DiscipleTalent(getTalent(Talent.WOUND_BALANCE), false, false));
+                    add(new DiscipleTalent(getTalent(Talent.WEAPON_WEAVING), true, false));
+                    add(new DiscipleTalent(getTalent(Talent.AVOID_BLOW), true, false));
+                    add(new DiscipleTalent(getTalent(Talent.MANEUVER), true, false));
+                    add(new DiscipleTalent(getTalent(Talent.MELEE_WEAPONS), true, false));
+                    add(new DiscipleTalent(getTalent(Talent.TAUNT), true, false));
+                }
+            });
+            setTalents(2, new HashSet<DiscipleTalent>() {
+                {
+                    add(new DiscipleTalent(getTalent(Talent.FIRST_IMPRESSION), true, false));
+                }
+            });
+            setTalents(3, new HashSet<DiscipleTalent>() {
+                {
+                    add(new DiscipleTalent(getTalent(Talent.RIPOSTE), true, false));
+                }
+            });
+            setTalents(4, new HashSet<DiscipleTalent>() {
+                {
+                    add(new DiscipleTalent(getTalent(Talent.HEARTENING_LAUGH), true, false));
+                }
+            });
+            setTalents(5, new HashSet<DiscipleTalent>() {
+                {
+                    add(new DiscipleTalent(getTalent(Talent.COBRA_STRIKE), false, false));
+                    add(new DiscipleTalent(getTalent(Talent.ENGAGING_BANTER), false, false));
+                    add(new DiscipleTalent(getTalent(Talent.ETIQUETTE), false, false));
+                    add(new DiscipleTalent(getTalent(Talent.GLIDING_STRIDE), false, false));
+                    add(new DiscipleTalent(getTalent(Talent.GRACEFUL_EXIT), false, false));
+                    add(new DiscipleTalent(getTalent(Talent.LASTING_IMPRESSION), false, false));
+                    add(new DiscipleTalent(getTalent(Talent.LION_HEART), false, false));
+                    add(new DiscipleTalent(getTalent(Talent.SPOT_ARMOR_FLAW), false, false));
+                    add(new DiscipleTalent(getTalent(Talent.SPRINT), false, false));
+                    add(new DiscipleTalent(getTalent(Talent.SWIFT_KICK), false, false));
+                    add(new DiscipleTalent(getTalent(Talent.SECOND_WEAPON), true, false));
+                }
+            });
+            setTalents(6, new HashSet<DiscipleTalent>() {
+                {
+                    add(new DiscipleTalent(getTalent(Talent.DISARM), true, false));
+                }
+            });
+            setTalents(7, new HashSet<DiscipleTalent>() {
+                {
+                    add(new DiscipleTalent(getTalent(Talent.RESIST_TAUNT), true, false));
+                }
+            });
+            setTalents(8, new HashSet<DiscipleTalent>() {
+                {
+                    add(new DiscipleTalent(getTalent(Talent.SECOND_ATTACK), true, false));
+                }
+            });
+        } catch (Talent.TalentException e) {
+            Log.e("EarthdawnCC", "Unsanitized input when building talent list for " + getName());
+            System.exit(-1);
+        }
+
     }
 
     @Override

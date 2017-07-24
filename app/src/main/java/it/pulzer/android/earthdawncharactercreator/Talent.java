@@ -20,6 +20,7 @@ public class Talent {
     public static final String ANTICIPATE_BLOW = "Anticipate Blow";
     public static final String ARCANE_MUTTERINGS = "Arcane Mutterings";
     public static final String ARMOR_MOUNT = "Armor Mount";
+    public static final String ARROW_WEAVING = "Arrow Weaving";
     public static final String ASTRAL_INTERFERENCE = "Astral Interference";
     public static final String ASTRAL_SIGHT = "Astral Sight";
     public static final String AVOID_BLOW = "Avoid Blow";
@@ -28,6 +29,7 @@ public class Talent {
     public static final String BANK_SHOT = "Bank Shot";
     public static final String BATTLE_BELLOW = "Battle Bellow";
     public static final String BATTLE_SHOUT = "Battle Shout";
+    public static final String BEAST_WEAVING = "Beast Weaving";
     public static final String BLADE_JUGGLE = "Blade Juggle";
     public static final String BLOOD_SHARE = "Blood Share";
     public static final String BOOK_MEMORY = "Book Memory";
@@ -58,6 +60,7 @@ public class Talent {
     public static final String DOUBLECHARGE = "Double-Charge";
     public static final String DOWN_STRIKE = "Down Strike";
     public static final String EARTH_SKIN = "Earth Skin";
+    public static final String ELEMENTALISM = "Elementalism";
     public static final String ELEMENTAL_HOLD = "Elemental Hold";
     public static final String ELEMENTAL_TONGUES = "Elemental Tongues";
     public static final String EMOTION_SONG = "Emotion Song";
@@ -84,6 +87,7 @@ public class Talent {
     public static final String HEARTENING_LAUGH = "Heartening Laugh";
     public static final String HOLD_THREAD = "Hold Thread";
     public static final String HYPNOTIZE = "Hypnotize";
+    public static final String ILLUSIONISM = "Illusionism";
     public static final String IMPRESSIVE_DISPLAY = "Impressive Display";
     public static final String INSPIRE_OTHERS = "Inspire Others";
     public static final String IRON_CONSTITUTION = "Iron Constitution";
@@ -103,6 +107,7 @@ public class Talent {
     public static final String MOUNT_ATTACK = "Mount Attack";
     public static final String MYSTIC_AIM = "Mystic Aim";
     public static final String NAVIGATION = "Navigation";
+    public static final String NETHERMANCY = "Nethermancy";
     public static final String ORBITING_SPY = "Orbiting Spy";
     public static final String PATTERNCRAFT = "Patterncraft";
     public static final String PICKING_POCKETS = "Picking Pockets";
@@ -110,12 +115,15 @@ public class Talent {
     public static final String READ_AND_WRITE_LANGUAGE = "Read and Write Language";
     public static final String RESEARCH = "Research";
     public static final String RESIST_TAUNT = "Resist Taunt";
+    public static final String RIDER_WEAVING = "Rider Weaving";
     public static final String RIPOSTE = "Riposte";
     public static final String SAFE_PATH = "Safe Path";
+    public static final String SCOUT_WEAVING = "Scout Weaving";
     public static final String SECOND_ATTACK = "Second Attack";
     public static final String SECOND_SHOT = "Second Shot";
     public static final String SECOND_WEAPON = "Second Weapon";
     public static final String SHIELD_BASH = "Shield Bash";
+    public static final String SKY_WEAVING = "Sky Weaving";
     public static final String SLOUGH_BLAME = "Slough Blame";
     public static final String SPEAK_LANGUAGE = "Speak Language";
     public static final String SPELLCASTING = "Spellcasting";
@@ -129,6 +137,7 @@ public class Talent {
     public static final String STEELY_STARE = "Steely Stare";
     public static final String STEEL_THOUGHT = "Steel Thought";
     public static final String STOPPING_AIM = "Stopping Aim";
+    public static final String STORY_WEAVING = "Story Weaving";
     public static final String SUMMON = "Summon";
     public static final String SUPPRESS_CURSE = "Suppress Curse";
     public static final String SURE_MOUNT = "Sure Mount";
@@ -138,7 +147,9 @@ public class Talent {
     public static final String TAUNT = "Taunt";
     public static final String TEMPER_FLESH = "Temper Flesh";
     public static final String TENACIOUS_WEAVE = "Tenacious Weave";
+    public static final String THIEF_WEAVING = "Thief Weaving";
     public static final String THOUGHT_LINK = "Thought Link";
+    public static final String THREAD_SMITHING = "Thread Smithing";
     public static final String THREAD_WEAVING = "Thread Weaving";
     public static final String THROWING_WEAPONS = "Throwing Weapons";
     public static final String TIGER_SPRING = "Tiger Spring";
@@ -147,13 +158,16 @@ public class Talent {
     public static final String TRUE_SHOT = "True Shot";
     public static final String TRUE_SIGHT = "True Sight";
     public static final String UNARMED_COMBAT = "Unarmed Combat";
+    public static final String WAR_WEAVING = "War Weaving";
     public static final String WATERFALL_SLAM = "Waterfall Slam";
+    public static final String WEAPON_WEAVING = "Weapon Weaving";
     public static final String WHEELING_ATTACK = "Wheeling Attack";
     public static final String WHEELING_DEFENSE = "Wheeling Defense";
     public static final String WILDERNESS_SURVIVAL = "Wilderness Survival";
     public static final String WILLFORCE = "Willforce";
     public static final String WIND_CATCHER = "Wind Catcher";
     public static final String WINNING_SMILE = "Winning Smile";
+    public static final String WIZARDRY = "Wizardry";
     public static final String WOOD_SKIN = "Wood Skin";
     public static final String WOUND_BALANCE = "Wound Balance";
     //endregion
