@@ -6,15 +6,27 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import it.pulzer.android.earthdawncharactercreator.disciplines.BaseDiscipline;
+import it.pulzer.android.earthdawncharactercreator.disciplines.Swordmaster;
 import it.pulzer.android.earthdawncharactercreator.disciplines.Thief;
+import it.pulzer.android.earthdawncharactercreator.modelview.CharacterAdapter;
+import it.pulzer.android.earthdawncharactercreator.races.BaseRace;
 import it.pulzer.android.earthdawncharactercreator.races.Elf;
+import it.pulzer.android.earthdawncharactercreator.races.Tskrang;
 
 public class MainActivity extends AppCompatActivity {
+    ArrayList<Character> characterSet = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,20 +43,16 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        Character c = new Character(new Elf(), new Thief());
-        Log.d("ATTRIBUTES", c.getCurrentProperties());
-        Log.d("DICEROLL", String.valueOf(StepTable.RollDice(4)));
-        Log.d("DICEROLL", String.valueOf(StepTable.RollDice(6)));
-        Log.d("DICEROLL", String.valueOf(StepTable.RollDice(8)));
-        Log.d("DICEROLL", String.valueOf(StepTable.RollDice(10)));
-        Log.d("DICEROLL", String.valueOf(StepTable.RollDice(12)));
-        Log.d("DICEROLL", String.valueOf(StepTable.RollDice(20)));
+        characterSet.add(new Character("Faldon", new Tskrang(), new Thief()));
+        characterSet.add(new Character("Nenquist", new Elf(), new Swordmaster()));
 
-        for(BaseDiscipline.DiscipleTalent t : c.getDiscipline().getAvailableTalents(1)) {
-            Log.d("TALENT", t.getTalent().name);
-        }
-        Log.d("DISCIPLINET", String.valueOf(c.getDiscipline().isDisciplineTalent(Talent.THIEF_WEAVING)));
+        characterSet.get(0).advanceCircle();
+        characterSet.get(0).advanceCircle();
+        characterSet.get(1).advanceCircle();
 
+        ArrayAdapter<Character> dataAdapter = new CharacterAdapter(this, 0, characterSet);
+        ListView listView = (ListView) findViewById(R.id.character_list);
+        listView.setAdapter(dataAdapter);
     }
 
     @Override

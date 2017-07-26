@@ -18,10 +18,17 @@ public class Character {
     private int totalLP;
     private Set<Map<Talent, Integer>> trainedTalents;
 
+    private String name;
+
     public Character(BaseRace race, BaseDiscipline discipline) {
         this.race = race;
         this.discipline = discipline;
         trainedTalents = new HashSet<>();
+    }
+
+    public Character(String name, BaseRace race, BaseDiscipline discipline) {
+        this(race, discipline);
+        this.name = name;
     }
 
     public BaseRace getRace() {
@@ -30,6 +37,19 @@ public class Character {
 
     public BaseDiscipline getDiscipline() {
         return discipline;
+    }
+
+    public int getCircle() {
+        return this.circle;
+    }
+
+    public boolean advanceCircle() {
+        this.circle = this.circle + 1;
+        return true;
+    }
+
+    public String getName() {
+        return  name;
     }
 
     public String getCurrentProperties() {

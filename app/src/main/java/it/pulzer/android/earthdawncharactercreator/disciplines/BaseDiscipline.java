@@ -262,7 +262,7 @@ public abstract class BaseDiscipline {
     public int getPhysicalArmorModification(int circle) { return 0; }
 
     public String getName() {
-        return this.getClass().getName();
+        return this.getClass().getSimpleName();
     }
 
     @Nullable
