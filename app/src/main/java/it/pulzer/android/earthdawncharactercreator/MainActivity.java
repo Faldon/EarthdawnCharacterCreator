@@ -5,8 +5,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.util.SparseArray;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,14 +12,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
-import it.pulzer.android.earthdawncharactercreator.disciplines.BaseDiscipline;
 import it.pulzer.android.earthdawncharactercreator.disciplines.Swordmaster;
 import it.pulzer.android.earthdawncharactercreator.disciplines.Thief;
 import it.pulzer.android.earthdawncharactercreator.modelview.CharacterAdapter;
-import it.pulzer.android.earthdawncharactercreator.races.BaseRace;
 import it.pulzer.android.earthdawncharactercreator.races.Elf;
 import it.pulzer.android.earthdawncharactercreator.races.Tskrang;
 
@@ -35,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.addCharacterBtn);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

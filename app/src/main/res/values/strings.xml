@@ -1,10 +1,14 @@
 <resources>
     <string name="app_name">Earthdawn Character Creator</string>
     <string name="action_settings">Settings</string>
+    <string name="action_diceroll">Dice cup</string>
+    <string name="circle">Circle</string>
     <string name="atr_dex">Dexterity</string>
     <string name="atr_str">Strength</string>
     <string name="atr_tough">Toughness</string>
     <string name="atr_perc">Perception</string>
     <string name="atr_will">Willpower</string>
     <string name="atr_cha">Charisma</string>
+    <string name="Thief">Thief</string>
+    <string name="Swordmaster">Swordmaster</string>
 </resources>
