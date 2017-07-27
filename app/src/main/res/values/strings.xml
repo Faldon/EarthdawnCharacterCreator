@@ -11,4 +11,16 @@
     <string name="atr_cha">Charisma</string>
     <string name="Thief">Thief</string>
     <string name="Swordmaster">Swordmaster</string>
+    <string name="Elf">Elf</string>
+    <string name="Tskrang">T\'Skrang</string>
+    <string name="title_activity_new_character">Create new character</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="tab_general">General</string>
+    <string name="tab_race">Race</string>
+    <string name="tab_discipline">Discipline</string>
+    <string name="tab_talents">Talents</string>
+    <string name="tab_spells">Spells</string>
+    <string name="label_character_name">Enter character name</string>
+    <string name="label_character_race">Choose character race</string>
+    <string name="label_character_discipline">Choose character discipline</string>
 </resources>

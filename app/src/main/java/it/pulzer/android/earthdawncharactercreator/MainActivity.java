@@ -1,21 +1,30 @@
 package it.pulzer.android.earthdawncharactercreator;
 
+import android.app.AlertDialog;
+import android.app.Application;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
 
+import it.pulzer.android.earthdawncharactercreator.disciplines.BaseDiscipline;
 import it.pulzer.android.earthdawncharactercreator.disciplines.Swordmaster;
 import it.pulzer.android.earthdawncharactercreator.disciplines.Thief;
 import it.pulzer.android.earthdawncharactercreator.modelview.CharacterAdapter;
+import it.pulzer.android.earthdawncharactercreator.races.BaseRace;
 import it.pulzer.android.earthdawncharactercreator.races.Elf;
 import it.pulzer.android.earthdawncharactercreator.races.Tskrang;
 
@@ -29,14 +38,81 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.addCharacterBtn);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton addCharacterBtn = (FloatingActionButton) findViewById(R.id.addCharacterBtn);
+        addCharacterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                // get prompts.xml view
+                LayoutInflater li = LayoutInflater.from(getApplicationContext());
+                View dialogView = li.inflate(R.layout.dialog_new_character, null);
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getApplicationContext());
+
+                // set prompts.xml to alertdialog builder
+                alertDialogBuilder.setView(dialogView);
+
+                final EditText input_character_name = (EditText) dialogView
+                        .findViewById(R.id.input_character_name);
+
+                final Spinner spinner_character_race = (Spinner) dialogView
+                        .findViewById(R.id.spinner_character_race);
+                String[] races = new String[]{
+                        "Elf",
+                        "Tskrang"
+                };
+                ArrayAdapter<String> raceAdapter = new ArrayAdapter<String>(
+                        getApplicationContext(),
+                        android.R.layout.simple_spinner_dropdown_item,
+                        races
+                );
+                spinner_character_race.setAdapter(raceAdapter);
+
+                final Spinner spinner_character_discipline = (Spinner) dialogView
+                        .findViewById(R.id.spinner_character_discipline);
+                String[] disciplines = new String[]{
+                        "Thief",
+                        "Swordmaster"
+                };
+                ArrayAdapter<String> disciplineAdapter = new ArrayAdapter<String>(
+                        getApplicationContext(),
+                        android.R.layout.simple_spinner_dropdown_item,
+                        disciplines
+                );
+                spinner_character_discipline.setAdapter(disciplineAdapter);
+
+                // set dialog message
+                alertDialogBuilder
+                        .setCancelable(false)
+                        .setPositiveButton("OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,int id) {
+                                        // get user input and set it to result
+                                        // edit text
+                                        String name = input_character_name.getText().toString();
+//                                        BaseRace race = (BaseRace)spinner_character_race.getSelectedItem();
+//                                        BaseDiscipline disc = (BaseDiscipline) spinner_character_discipline.getSelectedItem();
+//                                        Character newCharacter = new Character(name, race, disc);
+//                                        characterSet.add(newCharacter);
+                                    }
+                                })
+                        .setNegativeButton("Cancel",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,int id) {
+                                        dialog.cancel();
+                                    }
+                                });
+
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                // show it
+                alertDialog.show();
+
+//            }
+                //startActivity(new Intent(MainActivity.this,ShowCharacterActivity.class));
             }
         });
+
         characterSet.add(new Character("Faldon", new Tskrang(), new Thief()));
         characterSet.add(new Character("Nenquist", new Elf(), new Swordmaster()));
 

@@ -1,9 +1,7 @@
 package it.pulzer.android.earthdawncharactercreator.modelview;
 
 import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
-import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +12,6 @@ import android.widget.TextView;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 import it.pulzer.android.earthdawncharactercreator.Character;
 import it.pulzer.android.earthdawncharactercreator.R;
@@ -40,7 +37,7 @@ public class CharacterAdapter extends ArrayAdapter<Character> {
         View v = convertView;
         if (v == null) {
             LayoutInflater vi = (LayoutInflater)ctx.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            v = vi.inflate(R.layout.character_dataview, null);
+            v = vi.inflate(R.layout.dataview_character, null);
         }
         Character c = characterList.get(position);
         if (c != null) {

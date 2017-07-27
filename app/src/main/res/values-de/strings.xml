@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Earthdawn Charakter Ersteller</string>
     <string name="action_settings">Einstellungen</string>
     <string name="action_diceroll">Würfelbecher</string>
     <string name="circle">Kreis</string>
@@ -9,4 +10,9 @@
     <string name="atr_perc">Wahrnehmung</string>
     <string name="atr_will">Willenskraft</string>
     <string name="atr_cha">Charisma</string>
+    <string name="tab_general">Allgemein</string>
+    <string name="tab_race">Rasse</string>
+    <string name="tab_discipline">Disziplin</string>
+    <string name="tab_talents">Talente</string>
+    <string name="tab_spells">Zauber</string>
 </resources>
