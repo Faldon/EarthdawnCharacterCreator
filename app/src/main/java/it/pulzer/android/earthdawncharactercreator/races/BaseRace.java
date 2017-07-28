@@ -99,6 +99,6 @@ public abstract class BaseRace {
     }
 
     public String getName() {
-        return this.getClass().getName();
+        return this.getClass().getSimpleName();
     }
 }
