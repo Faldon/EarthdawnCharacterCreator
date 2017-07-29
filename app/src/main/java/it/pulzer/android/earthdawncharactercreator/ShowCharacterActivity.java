@@ -1,8 +1,8 @@
 package it.pulzer.android.earthdawncharactercreator;
 
+import android.content.Intent;
+import android.content.res.Resources;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -19,7 +19,13 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import org.jetbrains.annotations.NotNull;
+
+import it.pulzer.android.earthdawncharactercreator.view.TabFragmentSectionGeneral;
+
 public class ShowCharacterActivity extends AppCompatActivity {
+
+    private static Character c;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -41,27 +47,31 @@ public class ShowCharacterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_character);
 
+        Intent intent = getIntent();
+        int position = intent.getIntExtra(MainActivity.CHARACTER_POSITION, 0);
+        ShowCharacterActivity.c = MainActivity.characterSet.get(position);
+        this.setTitle(c.getName() + " - " + c.getDiscipline().getName());
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_general));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
+
+        // Create the adapter that will return a fragment for each of the three
+        // primary sections of the activity.
+        mSectionsPagerAdapter = new SectionsPagerAdapter(
+                getSupportFragmentManager(), tabLayout.getTabCount()
+        );
+
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
     }
 
@@ -69,7 +79,7 @@ public class ShowCharacterActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_new_character, menu);
+        getMenuInflater().inflate(R.menu.menu_show_character, menu);
         return true;
     }
 
@@ -86,6 +96,11 @@ public class ShowCharacterActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @NotNull
+    public static Character getDepictedCharacter() {
+        return ShowCharacterActivity.c;
     }
 
     /**
@@ -128,35 +143,37 @@ public class ShowCharacterActivity extends AppCompatActivity {
      * one of the sections/tabs/pages.
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
+        int mNumOfTabs;
 
-        public SectionsPagerAdapter(FragmentManager fm) {
+        public SectionsPagerAdapter(FragmentManager fm, int numOfTabs) {
             super(fm);
+            this.mNumOfTabs = numOfTabs;
         }
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            switch (position) {
+                case 0:
+                    TabFragmentSectionGeneral generalTab = new TabFragmentSectionGeneral();
+                    return generalTab;
+                default:
+                    return null;
+            }
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            return mNumOfTabs;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-            switch (position) {
+            switch(position) {
                 case 0:
-                    return "SECTION 1";
-                case 1:
-                    return "SECTION 2";
-                case 2:
-                    return "SECTION 3";
+                    return getString(R.string.tab_general);
+                default:
+                    return null;
             }
-            return null;
         }
     }
 }

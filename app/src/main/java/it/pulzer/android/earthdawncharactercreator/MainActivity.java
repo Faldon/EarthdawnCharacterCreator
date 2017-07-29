@@ -2,15 +2,18 @@ package it.pulzer.android.earthdawncharactercreator;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -47,7 +50,8 @@ import it.pulzer.android.earthdawncharactercreator.races.Tskrang;
 import it.pulzer.android.earthdawncharactercreator.races.Windling;
 
 public class MainActivity extends AppCompatActivity {
-    ArrayList<Character> characterSet = new ArrayList<>();
+    public static String CHARACTER_POSITION = "CharacterPosition";
+    public static ArrayList<Character> characterSet = new ArrayList<>();
     ArrayAdapter<Character> dataAdapter;
 
     @Override
@@ -149,16 +153,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        characterSet.add(new Character("Faldon", new Tskrang(), new Thief()));
-        characterSet.add(new Character("Nenquist", new Elf(), new Swordmaster()));
+        MainActivity.characterSet.add(new Character("Faldon", new Tskrang(), new Thief()));
+        MainActivity.characterSet.add(new Character("Nenquist", new Elf(), new Swordmaster()));
 
-        characterSet.get(0).advanceCircle();
-        characterSet.get(0).advanceCircle();
-        characterSet.get(1).advanceCircle();
+        MainActivity.characterSet.get(0).advanceCircle();
+        MainActivity.characterSet.get(0).advanceCircle();
+        MainActivity.characterSet.get(1).advanceCircle();
 
         dataAdapter = new CharacterAdapter(this, 0, characterSet);
-        ListView listView = (ListView) findViewById(R.id.character_list);
+        final ListView listView = (ListView) findViewById(R.id.character_list);
         listView.setAdapter(dataAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Character c = (Character) listView.getItemAtPosition(position);
+                Intent intent = new Intent(MainActivity.this, ShowCharacterActivity.class);
+                intent.putExtra(MainActivity.CHARACTER_POSITION, characterSet.indexOf(c));
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
