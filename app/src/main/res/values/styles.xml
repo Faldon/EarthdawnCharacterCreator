@@ -17,4 +17,10 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="AppTheme.AttributeHeader">
+        <item name="android:maxLength">3</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
 </resources>

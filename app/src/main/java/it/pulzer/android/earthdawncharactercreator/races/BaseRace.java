@@ -79,7 +79,11 @@ public abstract class BaseRace {
 
     public int getInitiative() { return dexterity.currentValue; }
 
-    public Attribute getAttribute(String AttributeName) throws Exception {
+    public int getMovementRate(String movement) {
+        return movementRate.get(movement);
+    }
+
+    public Attribute getAttribute(String AttributeName) {
         switch(AttributeName) {
             case Attribute.DEX:
                 return dexterity;
@@ -94,7 +98,7 @@ public abstract class BaseRace {
             case Attribute.CHA:
                 return charisma;
             default:
-                throw new Exception("No matching attribute found.");
+                return null;
         }
     }
 

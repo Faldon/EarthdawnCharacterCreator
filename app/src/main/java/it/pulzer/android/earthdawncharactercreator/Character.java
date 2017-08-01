@@ -48,22 +48,59 @@ public class Character {
         return true;
     }
 
-    public String getName() {
-        return  name;
+    public int getInitiative() {
+        return race.getInitiative() + discipline.getInitiativeModification(circle);
     }
 
-    public String getCurrentProperties() {
-        String output = "DEX\tSTR\tTOU\tPER\tWIL\tCHA\n";
-        try {
-            output += String.valueOf(race.getAttribute(Attribute.DEX).currentValue) + "\t";
-            output += String.valueOf(race.getAttribute(Attribute.STR).currentValue) + "\t";
-            output += String.valueOf(race.getAttribute(Attribute.TOU).currentValue) + "\t";
-            output += String.valueOf(race.getAttribute(Attribute.PER).currentValue) + "\t";
-            output += String.valueOf(race.getAttribute(Attribute.WIL).currentValue) + "\t";
-            output += String.valueOf(race.getAttribute(Attribute.CHA).currentValue);
-        } catch (Exception e) {
-            output += "\n" + e.getMessage();
-        }
-        return output;
+    public int getMovementRate() {
+        return race.getMovementRate("Base");
+    }
+
+    public int getWoundThreshold() {
+        return race.getWoundThreshold();
+    }
+
+    public int getUnconsciousThreshold() {
+        return race.getUnconsciousThreshold() + discipline.getUnconsciousModification(circle);
+    }
+
+    public int getDeathThreshold() {
+        return race.getDeathThreshold() + discipline.getDeathModification(circle);
+    }
+
+    public int getRecoveryCount() {
+        return race.getRecoveryCount() + discipline.getRecoveryCountModification(circle);
+    }
+
+    public int getPhysicalDefense() {
+        return race.getPhysicalDefenseRate() + discipline.getPhysicalDefenseModification(circle);
+    }
+
+    public int getMysticalDefense() {
+        return race.getMysticalDefenseRate() + discipline.getMysticalDefenseModification(circle);
+    }
+
+    public int getSocialDefense() {
+        return race.getSocialDefenseRate() + discipline.getSocialDefenseModification(circle);
+    }
+
+    public int getPhysicalArmor() {
+        return race.getPhysicalArmor() + discipline.getPhysicalArmorModification(circle);
+    }
+
+    public int getMysticalArmor() {
+        return race.getMysticalArmor() + discipline.getMysticalArmorModification(circle);
+    }
+
+    public int getCarryCapacity() {
+        return race.getCarryCapacity();
+    }
+
+    public int getLiftingLimit() {
+        return race.getLiftingLimit();
+    }
+
+    public String getName() {
+        return  name;
     }
 }

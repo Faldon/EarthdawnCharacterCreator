@@ -144,17 +144,18 @@ public class ShowCharacterActivity extends AppCompatActivity {
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
         int mNumOfTabs;
+        Fragment generalTab;
 
         public SectionsPagerAdapter(FragmentManager fm, int numOfTabs) {
             super(fm);
             this.mNumOfTabs = numOfTabs;
+            generalTab = new TabFragmentSectionGeneral();
         }
 
         @Override
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    TabFragmentSectionGeneral generalTab = new TabFragmentSectionGeneral();
                     return generalTab;
                 default:
                     return null;
