@@ -1,5 +1,9 @@
 package it.pulzer.android.earthdawncharactercreator;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -16,14 +20,14 @@ public class Character {
     private int circle;
     private int currentLP;
     private int totalLP;
-    private Set<Map<Talent, Integer>> trainedTalents;
+    private HashMap<BaseDiscipline.DiscipleTalent, Integer> trainedTalents;
 
     private String name;
 
     public Character(BaseRace race, BaseDiscipline discipline) {
         this.race = race;
         this.discipline = discipline;
-        trainedTalents = new HashSet<>();
+        trainedTalents = new HashMap<>();
     }
 
     public Character(String name, BaseRace race, BaseDiscipline discipline) {
@@ -45,6 +49,13 @@ public class Character {
 
     public boolean advanceCircle() {
         this.circle = this.circle + 1;
+        Iterator<BaseDiscipline.DiscipleTalent> iter = discipline.getAvailableTalents(circle).iterator();
+        while(iter.hasNext()) {
+            BaseDiscipline.DiscipleTalent t = iter.next();
+            if(t.isDiscipline()) {
+                trainedTalents.put(t, 1);
+            }
+        }
         return true;
     }
 
@@ -102,5 +113,20 @@ public class Character {
 
     public String getName() {
         return  name;
+    }
+
+    public int getTalentRank(BaseDiscipline.DiscipleTalent t) {
+        if(trainedTalents.containsKey(t)) {
+            return trainedTalents.get(t);
+        }
+        return 0;
+    }
+
+    public boolean hasTalentTrained(BaseDiscipline.DiscipleTalent t) {
+        return trainedTalents.containsKey(t);
+    }
+
+    public ArrayList<BaseDiscipline.DiscipleTalent> getTrainedTalents() {
+        return new ArrayList<>(trainedTalents.keySet());
     }
 }

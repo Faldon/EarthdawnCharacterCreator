@@ -1,5 +1,8 @@
 package it.pulzer.android.earthdawncharactercreator;
 
+import android.app.Application;
+import android.content.res.Resources;
+
 /**
  * Created by thopu on 11.07.17.
  */
@@ -57,7 +60,7 @@ public class Talent {
     public static final String DISPEL_MAGIC = "Dispel Magic";
     public static final String DISTRACT = "Distract";
     public static final String DOMINATE_BEAST = "Dominate Beast";
-    public static final String DOUBLECHARGE = "Double-Charge";
+    public static final String DOUBLECHARGE = "Double Charge";
     public static final String DOWN_STRIKE = "Down Strike";
     public static final String EARTH_SKIN = "Earth Skin";
     public static final String ELEMENTALISM = "Elementalism";
@@ -138,8 +141,8 @@ public class Talent {
     public static final String STEEL_THOUGHT = "Steel Thought";
     public static final String STOPPING_AIM = "Stopping Aim";
     public static final String STORY_WEAVING = "Story Weaving";
-    public static final String SUMMON_ALLY_SPIRITS = "Summon [Ally Spirits]";
-    public static final String SUMMON_ELEMENTAL_SPIRITS = "Summon [Elemental Spirit]";
+    public static final String SUMMON_ALLY_SPIRITS = "Summon Ally Spirits";
+    public static final String SUMMON_ELEMENTAL_SPIRITS = "Summon Elemental Spirit";
     public static final String SUPPRESS_CURSE = "Suppress Curse";
     public static final String SURE_MOUNT = "Sure Mount";
     public static final String SURPRISE_STRIKE = "Surprise Strike";
@@ -187,7 +190,7 @@ public class Talent {
     public String action;
     public int strain;
     public int skill;
-    public boolean improviesd;
+    public boolean improvised;
     //endregion
 
     public Talent(String name, String attribute, String action, int strain, int skill, boolean improvised) {
@@ -196,7 +199,7 @@ public class Talent {
         this.skill = skill;
         this.action = action;
         this.strain = strain;
-        this.improviesd = improvised;
+        this.improvised = improvised;
     }
 
     public static Talent create(String name) {

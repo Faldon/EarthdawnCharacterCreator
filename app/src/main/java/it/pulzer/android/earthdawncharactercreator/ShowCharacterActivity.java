@@ -17,15 +17,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+
+import it.pulzer.android.earthdawncharactercreator.disciplines.BaseDiscipline;
+import it.pulzer.android.earthdawncharactercreator.modelview.TalentAdapter;
 import it.pulzer.android.earthdawncharactercreator.view.TabFragmentSectionGeneral;
+import it.pulzer.android.earthdawncharactercreator.view.TabFragmentSectionTalents;
 
 public class ShowCharacterActivity extends AppCompatActivity {
 
     private static Character c;
+    private static ArrayList<BaseDiscipline.DiscipleTalent> talentSet;
+    private static ArrayAdapter<BaseDiscipline.DiscipleTalent> talentAdapter;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -50,14 +58,17 @@ public class ShowCharacterActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int position = intent.getIntExtra(MainActivity.CHARACTER_POSITION, 0);
         ShowCharacterActivity.c = MainActivity.characterSet.get(position);
-        this.setTitle(c.getName() + " - " + c.getDiscipline().getName());
+        ShowCharacterActivity.talentSet = ShowCharacterActivity.c.getTrainedTalents();
+        ShowCharacterActivity.talentAdapter = new TalentAdapter(this, 0, ShowCharacterActivity.talentSet);
 
+        this.setTitle(c.getName() + " - " + c.getDiscipline().getName());
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_general));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_talents));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         // Set up the ViewPager with the sections adapter.
@@ -103,6 +114,10 @@ public class ShowCharacterActivity extends AppCompatActivity {
         return ShowCharacterActivity.c;
     }
 
+    public static ArrayAdapter<BaseDiscipline.DiscipleTalent> getTalentAdapter() {
+        return ShowCharacterActivity.talentAdapter;
+    }
+
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -145,11 +160,14 @@ public class ShowCharacterActivity extends AppCompatActivity {
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
         int mNumOfTabs;
         Fragment generalTab;
+        Fragment talentsTab;
 
         public SectionsPagerAdapter(FragmentManager fm, int numOfTabs) {
             super(fm);
             this.mNumOfTabs = numOfTabs;
             generalTab = new TabFragmentSectionGeneral();
+            talentsTab = new TabFragmentSectionTalents();
+
         }
 
         @Override
@@ -157,6 +175,8 @@ public class ShowCharacterActivity extends AppCompatActivity {
             switch (position) {
                 case 0:
                     return generalTab;
+                case 1:
+                    return talentsTab;
                 default:
                     return null;
             }
@@ -172,6 +192,8 @@ public class ShowCharacterActivity extends AppCompatActivity {
             switch(position) {
                 case 0:
                     return getString(R.string.tab_general);
+                case 1:
+                    return getString(R.string.tab_talents);
                 default:
                     return null;
             }

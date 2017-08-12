@@ -56,7 +56,6 @@ public class CharacterAdapter extends ArrayAdapter<Character> {
     }
 
     private String getCharacterDiscipline(int position) {
-        //return ctx.getString(ctx.getResources().getIdentifier(characterList.get(position).getDiscipline().getName(), "strings", ctx.getPackageName()));
         return characterList.get(position).getDiscipline().getName();
     }
 
