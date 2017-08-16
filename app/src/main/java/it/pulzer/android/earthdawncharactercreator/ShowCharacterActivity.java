@@ -105,6 +105,8 @@ public class ShowCharacterActivity extends AppCompatActivity {
         if (id == R.id.action_advancecircle) {
             if(c.canAdvanceCircle()) {
                 c.advanceCircle();
+                ((TabFragmentSectionGeneral)mSectionsPagerAdapter.generalTab).setCharacterCircle();
+                mSectionsPagerAdapter.notifyDataSetChanged();
             } else {
                 AlertDialog.Builder builder;
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -129,11 +131,16 @@ public class ShowCharacterActivity extends AppCompatActivity {
             for(DiscipleTalent dt : ((TalentAdapter) talentAdapter).getSelectedItems()) {
                 c.improveTalentRank(dt);
             }
-            ((TalentAdapter) talentAdapter).clearSelection();
             talentAdapter.notifyDataSetChanged();
             return true;
         }
-
+        if (id == R.id.action_reducetalentranks) {
+            for(DiscipleTalent dt : ((TalentAdapter) talentAdapter).getSelectedItems()) {
+                c.reduceTalentRank(dt);
+            }
+            talentAdapter.notifyDataSetChanged();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 

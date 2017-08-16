@@ -127,6 +127,12 @@ public class Character {
         trainedTalents.put(t, currentRank);
     }
 
+    public void reduceTalentRank(DiscipleTalent t) {
+        if(trainedTalents.containsKey(t)) {
+            trainedTalents.put(t, trainedTalents.get(t)-1);
+        }
+    }
+
     public boolean hasTalentTrained(DiscipleTalent t) {
         return trainedTalents.containsKey(t);
     }

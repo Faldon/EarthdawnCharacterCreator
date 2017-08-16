@@ -132,10 +132,6 @@ public class TalentAdapter extends ArrayAdapter<DiscipleTalent> {
         return selectedItems.contains(item);
     }
 
-    public void clearSelection() {
-        selectedItems.clear();
-    }
-
     public ArrayList<DiscipleTalent> getSelectedItems() {
         return selectedItems;
     }

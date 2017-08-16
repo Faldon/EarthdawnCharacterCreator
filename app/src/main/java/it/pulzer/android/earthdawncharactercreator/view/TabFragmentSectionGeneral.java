@@ -23,13 +23,18 @@ import it.pulzer.android.earthdawncharactercreator.races.BaseRace;
 
 public class TabFragmentSectionGeneral extends Fragment   {
 
+    TextView charCircle;
+    Character currentCharacter;
+    BaseRace currentRace;
+    BaseDiscipline currentDiscipline;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_tabsection_general, container,false);
 
-        Character currentCharacter = ShowCharacterActivity.getDepictedCharacter();
-        BaseRace currentRace = currentCharacter.getRace();
-        BaseDiscipline currentDiscipline = currentCharacter.getDiscipline();
+        currentCharacter = ShowCharacterActivity.getDepictedCharacter();
+        currentRace = currentCharacter.getRace();
+        currentDiscipline = currentCharacter.getDiscipline();
 
         //region General Character data
         TextView charName = (TextView) v.findViewById(R.id.tab_general_charactername);
@@ -38,7 +43,7 @@ public class TabFragmentSectionGeneral extends Fragment   {
         TextView charDiscipline = (TextView) v.findViewById(R.id.tab_general_discipline);
         charDiscipline.setText(currentDiscipline.getName());
 
-        TextView charCircle = (TextView) v.findViewById(R.id.tab_general_circle);
+        charCircle = (TextView) v.findViewById(R.id.tab_general_circle);
         charCircle.setText(String.format("%d", currentCharacter.getCircle()));
         //endregion
 
@@ -139,6 +144,11 @@ public class TabFragmentSectionGeneral extends Fragment   {
         int move = currentCharacter.getMovementRate();
         moveVal.setText(String.format("%d", move));
         //endregion
+
         return v;
+    }
+
+    public void setCharacterCircle() {
+        charCircle.setText(String.format("%d", currentCharacter.getCircle()));
     }
 }
