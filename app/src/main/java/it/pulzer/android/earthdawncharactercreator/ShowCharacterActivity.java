@@ -1,7 +1,9 @@
 package it.pulzer.android.earthdawncharactercreator;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
+import android.os.Build;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -11,20 +13,18 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
-
 import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
-
-import it.pulzer.android.earthdawncharactercreator.disciplines.BaseDiscipline;
+import it.pulzer.android.earthdawncharactercreator.disciplines.BaseDiscipline.DiscipleTalent;
 import it.pulzer.android.earthdawncharactercreator.modelview.TalentAdapter;
 import it.pulzer.android.earthdawncharactercreator.view.TabFragmentSectionGeneral;
 import it.pulzer.android.earthdawncharactercreator.view.TabFragmentSectionTalents;
@@ -32,8 +32,8 @@ import it.pulzer.android.earthdawncharactercreator.view.TabFragmentSectionTalent
 public class ShowCharacterActivity extends AppCompatActivity {
 
     private static Character c;
-    private static ArrayList<BaseDiscipline.DiscipleTalent> talentSet;
-    private static ArrayAdapter<BaseDiscipline.DiscipleTalent> talentAdapter;
+    private static ArrayList<DiscipleTalent> talentSet;
+    private static ArrayAdapter<DiscipleTalent> talentAdapter;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -102,7 +102,35 @@ public class ShowCharacterActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_advancecircle) {
+            if(c.canAdvanceCircle()) {
+                c.advanceCircle();
+            } else {
+                AlertDialog.Builder builder;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    builder = new AlertDialog.Builder(ShowCharacterActivity.this, android.R.style.Theme_Material_Dialog_Alert);
+                } else {
+                    builder = new AlertDialog.Builder(ShowCharacterActivity.this);
+                }
+                builder
+                        .setMessage(R.string.dialog_cannot_advance)
+                        .setCancelable(false)
+                        .setPositiveButton("OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,int id) {
+                                        dialog.dismiss();
+                                    }
+                                })
+                        .show();
+            }
+            return true;
+        }
+        if (id == R.id.action_improvetalentranks) {
+            for(DiscipleTalent dt : ((TalentAdapter) talentAdapter).getSelectedItems()) {
+                c.improveTalentRank(dt);
+            }
+            ((TalentAdapter) talentAdapter).clearSelection();
+            talentAdapter.notifyDataSetChanged();
             return true;
         }
 
@@ -114,7 +142,7 @@ public class ShowCharacterActivity extends AppCompatActivity {
         return ShowCharacterActivity.c;
     }
 
-    public static ArrayAdapter<BaseDiscipline.DiscipleTalent> getTalentAdapter() {
+    public static ArrayAdapter<DiscipleTalent> getTalentAdapter() {
         return ShowCharacterActivity.talentAdapter;
     }
 

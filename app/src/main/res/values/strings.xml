@@ -218,6 +218,8 @@
     <string name="initiative">Initiative</string>
     <string name="title_activity_show_character">Create new character</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="action_advancecircle">Advance circle</string>
+    <string name="action_improvetalentranks">Improve talent ranks</string>
     <string name="tab_general">General</string>
     <string name="tab_general_label_charactername">Name:</string>
     <string name="tab_general_label_discipline">Discipline:</string>
@@ -236,4 +238,5 @@
     <string name="label_action">Action</string>
     <string name="label_discipline">Discipline</string>
     <string name="label_strain">Strain</string>
+    <string name="dialog_cannot_advance">The requirements to advance the circle of this character are not met.</string>
 </resources>

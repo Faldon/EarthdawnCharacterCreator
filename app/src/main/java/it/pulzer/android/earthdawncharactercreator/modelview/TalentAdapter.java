@@ -2,7 +2,6 @@ package it.pulzer.android.earthdawncharactercreator.modelview;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,19 +16,19 @@ import java.util.ArrayList;
 import it.pulzer.android.earthdawncharactercreator.R;
 import it.pulzer.android.earthdawncharactercreator.ShowCharacterActivity;
 import it.pulzer.android.earthdawncharactercreator.StepTable;
-import it.pulzer.android.earthdawncharactercreator.disciplines.BaseDiscipline;
-import it.pulzer.android.earthdawncharactercreator.races.BaseRace;
+import it.pulzer.android.earthdawncharactercreator.disciplines.BaseDiscipline.DiscipleTalent;
 
 /**
  * Created by faldon on 24.07.17.
  */
 
-public class TalentAdapter extends ArrayAdapter<BaseDiscipline.DiscipleTalent> {
+public class TalentAdapter extends ArrayAdapter<DiscipleTalent> {
     private Context ctx;
-    private ArrayList<BaseDiscipline.DiscipleTalent> talentList = new ArrayList<>();
+    private ArrayList<DiscipleTalent> talentList = new ArrayList<>();
+    private ArrayList<DiscipleTalent> selectedItems = new ArrayList<>();
     private int mTotalCount;
 
-    public TalentAdapter(Context context, int textViewResourceId, ArrayList<BaseDiscipline.DiscipleTalent> talentList) {
+    public TalentAdapter(Context context, int textViewResourceId, ArrayList<DiscipleTalent> talentList) {
         super(context, textViewResourceId, talentList);
         this.ctx = context;
         this.talentList = talentList;
@@ -43,7 +42,8 @@ public class TalentAdapter extends ArrayAdapter<BaseDiscipline.DiscipleTalent> {
             LayoutInflater vi = (LayoutInflater)ctx.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
             v = vi.inflate(R.layout.dataview_talent, null);
         }
-        BaseDiscipline.DiscipleTalent t = talentList.get(position);
+
+        DiscipleTalent t = talentList.get(position);
         if (t != null) {
             TextView talent_name = (TextView) v.findViewById(R.id.talent_name);
             talent_name.setText(getTalentName(position));
@@ -120,4 +120,23 @@ public class TalentAdapter extends ArrayAdapter<BaseDiscipline.DiscipleTalent> {
         return Integer.toString(talentList.get(position).getTalent().strain);
     }
 
+    public void select(DiscipleTalent item) {
+        selectedItems.add(item);
+    }
+
+    public void deselect(DiscipleTalent item) {
+        selectedItems.remove(item);
+    }
+
+    public boolean isSelected(DiscipleTalent item) {
+        return selectedItems.contains(item);
+    }
+
+    public void clearSelection() {
+        selectedItems.clear();
+    }
+
+    public ArrayList<DiscipleTalent> getSelectedItems() {
+        return selectedItems;
+    }
 }

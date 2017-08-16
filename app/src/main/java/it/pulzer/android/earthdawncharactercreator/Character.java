@@ -1,14 +1,12 @@
 package it.pulzer.android.earthdawncharactercreator;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
 
 import it.pulzer.android.earthdawncharactercreator.disciplines.BaseDiscipline;
-import it.pulzer.android.earthdawncharactercreator.races.*;
+import it.pulzer.android.earthdawncharactercreator.disciplines.BaseDiscipline.DiscipleTalent;
+import it.pulzer.android.earthdawncharactercreator.races.BaseRace;
 
 /**
  * Created by faldon on 11.07.17.
@@ -20,7 +18,7 @@ public class Character {
     private int circle;
     private int currentLP;
     private int totalLP;
-    private HashMap<BaseDiscipline.DiscipleTalent, Integer> trainedTalents;
+    private HashMap<DiscipleTalent, Integer> trainedTalents;
 
     private String name;
 
@@ -47,16 +45,15 @@ public class Character {
         return this.circle;
     }
 
-    public boolean advanceCircle() {
+    public void advanceCircle() {
         this.circle = this.circle + 1;
-        Iterator<BaseDiscipline.DiscipleTalent> iter = discipline.getAvailableTalents(circle).iterator();
+        Iterator<DiscipleTalent> iter = discipline.getAvailableTalents(circle).iterator();
         while(iter.hasNext()) {
-            BaseDiscipline.DiscipleTalent t = iter.next();
+            DiscipleTalent t = iter.next();
             if(t.isDiscipline()) {
                 trainedTalents.put(t, 1);
             }
         }
-        return true;
     }
 
     public int getInitiative() {
@@ -115,18 +112,35 @@ public class Character {
         return  name;
     }
 
-    public int getTalentRank(BaseDiscipline.DiscipleTalent t) {
+    public int getTalentRank(DiscipleTalent t) {
         if(trainedTalents.containsKey(t)) {
             return trainedTalents.get(t);
         }
         return 0;
     }
 
-    public boolean hasTalentTrained(BaseDiscipline.DiscipleTalent t) {
+    public void improveTalentRank(DiscipleTalent t) {
+        int currentRank = 1;
+        if(trainedTalents.containsKey(t)) {
+            currentRank += trainedTalents.get(t);
+        }
+        trainedTalents.put(t, currentRank);
+    }
+
+    public boolean hasTalentTrained(DiscipleTalent t) {
         return trainedTalents.containsKey(t);
     }
 
-    public ArrayList<BaseDiscipline.DiscipleTalent> getTrainedTalents() {
+    public ArrayList<DiscipleTalent> getTrainedTalents() {
         return new ArrayList<>(trainedTalents.keySet());
+    }
+
+    public boolean canAdvanceCircle() {
+        for(DiscipleTalent dt : discipline.getAvailableTalents(circle)) {
+            if(dt.isDiscipline() && (!hasTalentTrained(dt) || getTalentRank(dt) <= circle)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
