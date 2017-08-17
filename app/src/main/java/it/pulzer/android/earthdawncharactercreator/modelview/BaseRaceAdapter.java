@@ -2,8 +2,6 @@ package it.pulzer.android.earthdawncharactercreator.modelview;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +13,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-import it.pulzer.android.earthdawncharactercreator.Character;
-import it.pulzer.android.earthdawncharactercreator.R;
 import it.pulzer.android.earthdawncharactercreator.races.BaseRace;
 
 /**

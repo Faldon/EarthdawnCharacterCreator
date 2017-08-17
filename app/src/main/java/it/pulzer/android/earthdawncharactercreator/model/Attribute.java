@@ -1,4 +1,4 @@
-package it.pulzer.android.earthdawncharactercreator;
+package it.pulzer.android.earthdawncharactercreator.model;
 
 /**
  * Created by thopu on 11.07.17.

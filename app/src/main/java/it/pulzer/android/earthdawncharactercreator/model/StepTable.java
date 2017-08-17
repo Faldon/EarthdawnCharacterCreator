@@ -1,4 +1,4 @@
-package it.pulzer.android.earthdawncharactercreator;
+package it.pulzer.android.earthdawncharactercreator.model;
 
 import org.jetbrains.annotations.Contract;
 

@@ -4,9 +4,9 @@ import android.util.Log;
 
 import java.util.HashSet;
 
-import it.pulzer.android.earthdawncharactercreator.Attribute;
-import it.pulzer.android.earthdawncharactercreator.KarmaModification;
-import it.pulzer.android.earthdawncharactercreator.Talent;
+import it.pulzer.android.earthdawncharactercreator.model.Attribute;
+import it.pulzer.android.earthdawncharactercreator.model.KarmaModification;
+import it.pulzer.android.earthdawncharactercreator.model.Talent;
 
 /**
  * Created by thopu on 11.07.17.

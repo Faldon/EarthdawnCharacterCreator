@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import it.pulzer.android.earthdawncharactercreator.Attribute;
+import it.pulzer.android.earthdawncharactercreator.model.Attribute;
 
 /**
  * Created by thopu on 28.06.17.

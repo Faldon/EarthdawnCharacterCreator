@@ -8,8 +8,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import it.pulzer.android.earthdawncharactercreator.KarmaModification;
-import it.pulzer.android.earthdawncharactercreator.Talent;
+import it.pulzer.android.earthdawncharactercreator.model.KarmaModification;
+import it.pulzer.android.earthdawncharactercreator.model.Talent;
 
 /**
  * Created by thopu on 11.07.17.

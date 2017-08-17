@@ -1,17 +1,14 @@
 package it.pulzer.android.earthdawncharactercreator.view;
 
-import android.app.Application;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import it.pulzer.android.earthdawncharactercreator.Attribute;
-import it.pulzer.android.earthdawncharactercreator.Character;
+import it.pulzer.android.earthdawncharactercreator.model.Attribute;
+import it.pulzer.android.earthdawncharactercreator.model.Character;
 import it.pulzer.android.earthdawncharactercreator.R;
 import it.pulzer.android.earthdawncharactercreator.ShowCharacterActivity;
 import it.pulzer.android.earthdawncharactercreator.disciplines.BaseDiscipline;

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 import it.pulzer.android.earthdawncharactercreator.R;
 import it.pulzer.android.earthdawncharactercreator.ShowCharacterActivity;
-import it.pulzer.android.earthdawncharactercreator.StepTable;
+import it.pulzer.android.earthdawncharactercreator.model.StepTable;
 import it.pulzer.android.earthdawncharactercreator.disciplines.BaseDiscipline.DiscipleTalent;
 
 /**

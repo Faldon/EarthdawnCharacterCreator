@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-import it.pulzer.android.earthdawncharactercreator.Character;
+import it.pulzer.android.earthdawncharactercreator.model.Character;
 import it.pulzer.android.earthdawncharactercreator.R;
 
 /**
