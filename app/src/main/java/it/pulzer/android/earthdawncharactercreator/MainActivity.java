@@ -138,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
                                         BaseRace race = (BaseRace)spinner_character_race.getSelectedItem();
                                         BaseDiscipline disc = (BaseDiscipline) spinner_character_discipline.getSelectedItem();
                                         Character newCharacter = new Character(name, race, disc);
+                                        newCharacter.advanceCircle();
                                         characterSet.add(newCharacter);
                                         dataAdapter.notifyDataSetChanged();
 

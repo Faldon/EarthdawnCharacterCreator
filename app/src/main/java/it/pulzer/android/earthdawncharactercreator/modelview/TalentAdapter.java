@@ -120,6 +120,11 @@ public class TalentAdapter extends ArrayAdapter<DiscipleTalent> {
         return Integer.toString(talentList.get(position).getTalent().strain);
     }
 
+    public void setTalentList(ArrayList<DiscipleTalent> talentList) {
+        this.talentList = talentList;
+        notifyDataSetChanged();
+    }
+
     public void select(DiscipleTalent item) {
         selectedItems.add(item);
     }

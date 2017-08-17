@@ -105,6 +105,7 @@ public class ShowCharacterActivity extends AppCompatActivity {
         if (id == R.id.action_advancecircle) {
             if(c.canAdvanceCircle()) {
                 c.advanceCircle();
+                ((TalentAdapter)talentAdapter).setTalentList(c.getTrainedTalents());
                 ((TabFragmentSectionGeneral)mSectionsPagerAdapter.generalTab).setCharacterCircle();
                 mSectionsPagerAdapter.notifyDataSetChanged();
             } else {
