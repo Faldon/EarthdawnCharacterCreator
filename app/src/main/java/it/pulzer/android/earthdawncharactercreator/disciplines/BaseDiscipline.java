@@ -290,6 +290,15 @@ public abstract class BaseDiscipline {
         throw new Talent.TalentException("Talent not found");
     }
 
+    public int getTalentGrade(DiscipleTalent t) {
+        for(int i=1;i<availableTalents.keySet().size()-1;i++) {
+            if(getAvailableTalents(i).contains(t)) {
+                return i;
+            }
+        }
+        return 0;
+    }
+
     public Set<DiscipleTalent> getAvailableTalents(int circle) {
         return availableTalents.get(circle);
     }

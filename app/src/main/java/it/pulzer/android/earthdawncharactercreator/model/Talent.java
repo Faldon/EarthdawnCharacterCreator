@@ -549,6 +549,21 @@ public class Talent {
         return toCompare.name.equals(this.name);
     }
 
+    public static int getTalentCosts(int rank, int circle) {
+        int talentGrade = (int)Math.ceil((double)circle/4);
+        if(talentGrade>1) {
+            return getTalentCosts(rank+talentGrade-1, 1);
+        }
+        switch(rank) {
+            case 1:
+                return 100;
+            case 2:
+                return 100 + getTalentCosts(rank-1, 1);
+            default:
+                return getTalentCosts(rank-1, 1) + getTalentCosts(rank-2, 1);
+        }
+    }
+
     public static class TalentException extends Exception {
 
         public TalentException() {

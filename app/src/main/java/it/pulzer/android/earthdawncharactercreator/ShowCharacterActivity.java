@@ -1,11 +1,16 @@
 package it.pulzer.android.earthdawncharactercreator;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
@@ -19,9 +24,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
+import java.util.Locale;
+
 import it.pulzer.android.earthdawncharactercreator.disciplines.BaseDiscipline.DiscipleTalent;
 import it.pulzer.android.earthdawncharactercreator.model.Character;
 import it.pulzer.android.earthdawncharactercreator.modelview.TalentAdapter;
@@ -127,6 +135,102 @@ public class ShowCharacterActivity extends AppCompatActivity {
             }
             return true;
         }
+        if (id == R.id.action_raiseattribute) {
+            AlertDialog.Builder builder;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                builder = new AlertDialog.Builder(ShowCharacterActivity.this, android.R.style.Theme_Material_Dialog_Alert);
+            } else {
+                builder = new AlertDialog.Builder(ShowCharacterActivity.this);
+            }
+
+            LayoutInflater li = LayoutInflater.from(getApplicationContext());
+            View dialogView = li.inflate(R.layout.dialog_raise_attribute, null);
+
+            builder.setView(dialogView);
+
+            final Spinner spinner_attribute = (Spinner) dialogView
+                    .findViewById(R.id.spinner_attribute);
+            final ArrayList<String> attributes = new ArrayList<String>() {
+                {
+                    add(getString(R.string.Dexterity));
+                    add(getString(R.string.Strength));
+                    add(getString(R.string.Toughness));
+                    add(getString(R.string.Willpower));
+                    add(getString(R.string.Perception));
+                    add(getString(R.string.Charisma));
+                }
+            };
+
+            ArrayAdapter<String> attributeAdapter = new ArrayAdapter<String>(
+                    getApplicationContext(),
+                    android.R.layout.simple_spinner_dropdown_item,
+                    attributes
+            );
+            attributeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner_attribute.setAdapter(attributeAdapter);
+
+            builder
+                    .setCancelable(false)
+                    .setPositiveButton("OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog,int id) {
+                                    String attribute = (String) spinner_attribute.getSelectedItem();
+                                    Context ctx = getApplicationContext();
+                                    Resources res = getLocalizedResources(ctx, Locale.ENGLISH);
+                                    String attr = ctx.getString(res.getIdentifier(
+                                            attribute,
+                                            "string",
+                                            ctx.getPackageName()
+                                            )
+                                    );
+                                    if(c.raiseAttribute(attr)) {
+                                        new AlertDialog.Builder(ShowCharacterActivity.this)
+                                                .setMessage(getString(
+                                                        R.string.dialog_attribute_raised
+                                                ))
+                                                .setCancelable(false)
+                                                .setNeutralButton(
+                                                        "OK",
+                                                        new DialogInterface.OnClickListener() {
+                                                            @Override
+                                                            public void onClick(
+                                                                    DialogInterface dialogInterface,
+                                                                    int i) {
+
+                                                            }
+                                                        })
+                                                .show();
+                                    } else {
+                                        new AlertDialog.Builder(ShowCharacterActivity.this)
+                                                .setMessage(getString(
+                                                        R.string.dialog_attribute_max
+                                                ))
+                                                .setCancelable(false)
+                                                .setNeutralButton(
+                                                        "OK",
+                                                        new DialogInterface.OnClickListener() {
+                                                            @Override
+                                                            public void onClick(
+                                                                    DialogInterface dialogInterface,
+                                                                    int i) {
+
+                                                    }
+                                                })
+                                                .show();
+                                    }
+                                    //dataAdapter.notifyDataSetChanged();
+
+                                }
+                            })
+                    .setNegativeButton("Cancel",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog,int id) {
+                                    dialog.cancel();
+                                }
+                            })
+                    .show();
+            return true;
+        }
         if (id == R.id.action_improvetalentranks) {
             for(DiscipleTalent dt : ((TalentAdapter) talentAdapter).getSelectedItems()) {
                 c.improveTalentRank(dt);
@@ -151,6 +255,15 @@ public class ShowCharacterActivity extends AppCompatActivity {
 
     public static ArrayAdapter<DiscipleTalent> getTalentAdapter() {
         return ShowCharacterActivity.talentAdapter;
+    }
+
+    @NonNull
+    Resources getLocalizedResources(Context context, Locale desiredLocale) {
+        Configuration conf = context.getResources().getConfiguration();
+        conf = new Configuration(conf);
+        conf.setLocale(desiredLocale);
+        Context localizedContext = context.createConfigurationContext(conf);
+        return localizedContext.getResources();
     }
 
     /**

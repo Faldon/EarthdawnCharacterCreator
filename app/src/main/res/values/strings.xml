@@ -219,6 +219,7 @@
     <string name="action_settings">Settings</string>
     <string name="action_diceroll">Dice cup</string>
     <string name="action_advancecircle">Advance circle</string>
+    <string name="action_raiseattribute">Raise attribute</string>
     <string name="action_improvetalentranks">Improve talent ranks</string>
     <string name="action_reducetalentranks">Reduce talent ranks</string>
     <string name="tab_general">General</string>
@@ -240,4 +241,6 @@
     <string name="label_discipline">Discipline</string>
     <string name="label_strain">Strain</string>
     <string name="dialog_cannot_advance">The requirements to advance the circle of this character are not met.</string>
+    <string name="dialog_attribute_raised">Attribute raised.</string>
+    <string name="dialog_attribute_max">Attribute already at maximum.</string>
 </resources>

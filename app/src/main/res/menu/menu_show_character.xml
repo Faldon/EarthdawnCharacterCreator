@@ -8,13 +8,18 @@
         android:title="@string/action_advancecircle"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_improvetalentranks"
+        android:id="@+id/action_raiseattribute"
         android:orderInCategory="101"
+        android:title="@string/action_raiseattribute"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_improvetalentranks"
+        android:orderInCategory="102"
         android:title="@string/action_improvetalentranks"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_reducetalentranks"
-        android:orderInCategory="102"
+        android:orderInCategory="103"
         android:title="@string/action_reducetalentranks"
         app:showAsAction="never" />
 </menu>

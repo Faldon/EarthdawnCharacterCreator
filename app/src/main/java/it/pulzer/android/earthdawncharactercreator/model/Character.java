@@ -25,6 +25,8 @@ public class Character {
     public Character(BaseRace race, BaseDiscipline discipline) {
         this.race = race;
         this.discipline = discipline;
+        this.currentLP = 0;
+        this.totalLP = 0;
         trainedTalents = new HashMap<>();
     }
 
@@ -125,12 +127,23 @@ public class Character {
             currentRank += trainedTalents.get(t);
         }
         trainedTalents.put(t, currentRank);
+        spendLP(Talent.getTalentCosts(currentRank, discipline.getTalentGrade(t)));
     }
 
     public void reduceTalentRank(DiscipleTalent t) {
         if(trainedTalents.containsKey(t)) {
             trainedTalents.put(t, trainedTalents.get(t)-1);
+            addLP(Talent.getTalentCosts(trainedTalents.get(t)+1, discipline.getTalentGrade(t)));
+            spendLP(Talent.getTalentCosts(trainedTalents.get(t), discipline.getTalentGrade(t)));
         }
+    }
+
+    public boolean raiseAttribute(String attributeName) {
+        int raises = race.getAttribute(attributeName).raiseAttribute();
+        if(raises>-1) {
+            spendLP(Talent.getTalentCosts(4+raises, 1));
+        }
+        return raises>-1;
     }
 
     public boolean hasTalentTrained(DiscipleTalent t) {
@@ -148,5 +161,22 @@ public class Character {
             }
         }
         return true;
+    }
+
+    public int getCurrentLP() {
+        return this.currentLP;
+    }
+
+    public int getTotalLP() {
+        return this.totalLP;
+    }
+
+    public void addLP(int lp) {
+        this.currentLP += lp;
+        this.totalLP += lp;
+    }
+
+    public void spendLP(int lp) {
+        this.currentLP -= lp;
     }
 }
