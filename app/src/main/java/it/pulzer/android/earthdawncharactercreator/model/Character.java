@@ -35,6 +35,21 @@ public class Character {
         this.name = name;
     }
 
+    public Character(String name,
+                     BaseRace race,
+                     BaseDiscipline discipline,
+                     int circle,
+                     int currentLP,
+                     int totalLP,
+                     HashMap<DiscipleTalent, Integer> trainedTalents
+    ) {
+        this(name, race, discipline);
+        this.circle = circle;
+        this.currentLP = currentLP;
+        this.totalLP = totalLP;
+        this.trainedTalents = trainedTalents;
+    }
+
     public BaseRace getRace() {
         return race;
     }

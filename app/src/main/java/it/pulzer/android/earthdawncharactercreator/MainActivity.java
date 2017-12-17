@@ -1,8 +1,10 @@
 package it.pulzer.android.earthdawncharactercreator;
 
 import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -55,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     public static String CHARACTER_POSITION = "CharacterPosition";
     public static ArrayList<Character> characterSet = new ArrayList<>();
     ArrayAdapter<Character> dataAdapter;
+    CharacterCreatorDbHelper mDbHelper = new CharacterCreatorDbHelper(getApplicationContext());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,7 +145,11 @@ public class MainActivity extends AppCompatActivity {
                                         Character newCharacter = new Character(name, race, disc);
                                         newCharacter.advanceCircle();
                                         characterSet.add(newCharacter);
-                                        dataAdapter.notifyDataSetChanged();
+
+                                        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+                                        if(mDbHelper.persistCharacter(db, newCharacter)) {
+                                            dataAdapter.notifyDataSetChanged();
+                                        }
 
                                     }
                                 })
